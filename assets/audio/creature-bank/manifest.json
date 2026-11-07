@@ -1,0 +1,55 @@
+{
+  "sampleRate": 32000,
+  "channels": 1,
+  "playbackRate": 1,
+  "processing": "Mono, DC removal, active RMS target .14, peak ceiling -3 dBFS, 20ms edge fades; no runtime pitch change.",
+  "profiles": [
+    {
+      "id": "tiger",
+      "label": "Hổ gầm",
+      "kind": "recording",
+      "clips": [
+        {
+          "id": "tiger",
+          "path": "assets/audio/creature-bank/tiger.wav",
+          "duration": 1.505,
+          "source": "https://freesound.org/people/lauramellis/sounds/263115/",
+          "author": "lauramellis",
+          "license": "CC0-1.0",
+          "sourceStart": 0.95,
+          "sourceEnd": 2.35,
+          "sha256": "f66847a76541ff052d04e0b7c6c77b337e5e02b081c131658f34d7a25730e8c2"
+        }
+      ]
+    },
+    {
+      "id": "dragon",
+      "label": "Rồng Trung Hoa",
+      "kind": "designed",
+      "clips": [
+        {
+          "id": "dragon-a",
+          "path": "assets/audio/creature-bank/dragon-a.wav",
+          "duration": 1.955,
+          "source": "https://freesound.org/people/JoelAudio/sounds/85568/",
+          "author": "JoelAudio",
+          "license": "CC0-1.0",
+          "sourceStart": 0,
+          "sourceEnd": 1.85,
+          "sha256": "62dd3b2ebd3499edad16b8726e8cf2b2499c89be8d5da4377570edcb910ed25b"
+        },
+        {
+          "id": "dragon-b",
+          "path": "assets/audio/creature-bank/dragon-b.wav",
+          "duration": 3.005,
+          "source": "https://freesound.org/people/qubodup/sounds/442964/",
+          "author": "qubodup",
+          "license": "CC0-1.0",
+          "sourceStart": 0.05,
+          "sourceEnd": 2.95,
+          "sha256": "78cb01b4d7adcc7935f190a3bc804b329bf196f4788abf03e7866d0008e094fe"
+        }
+      ]
+    }
+  ]
+}

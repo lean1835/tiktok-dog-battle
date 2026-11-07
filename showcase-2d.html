@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đấu Trường Chó Sủa 5v5 - Showcase Nhân Vật Chibi 2.5D</title>
+  <style>
+    /* Reset & Base Styles - Zero External CDN, 100% Offline */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg-dark: #0a0e17;
+      --bg-card: #131b2e;
+      --bg-card-hover: #1c2742;
+      --border-card: #233152;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --red-team: #ef4444;
+      --red-glow: rgba(239, 68, 68, 0.4);
+      --blue-team: #3b82f6;
+      --blue-glow: rgba(59, 130, 246, 0.4);
+      --gold: #f59e0b;
+      --gold-glow: rgba(245, 158, 11, 0.4);
+      --green: #10b981;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.5;
+      padding: 20px;
+      min-height: 100vh;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(239, 68, 68, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 90% 20%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 50% 80%, rgba(245, 158, 11, 0.05) 0%, transparent 50%);
+    }
+
+    /* Container */
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      margin-bottom: 28px;
+      padding: 24px;
+      background: linear-gradient(180deg, rgba(19, 27, 46, 0.9) 0%, rgba(10, 14, 23, 0.8) 100%);
+      border: 1px solid var(--border-card);
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      position: relative;
+    }
+
+    .badge-top {
+      display: inline-block;
+      padding: 4px 14px;
+      background: linear-gradient(90deg, #dc2626, #f59e0b, #2563eb);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border-radius: 20px;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      background: linear-gradient(90deg, #f87171, #fbbf24, #60a5fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+      text-shadow: 0 4px 16px rgba(0,0,0,0.4);
+    }
+
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 14px;
+      max-width: 780px;
+      margin: 0 auto 16px;
+    }
+
+    .stats-row {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .stat-pill {
+      background: rgba(30, 41, 59, 0.8);
+      border: 1px solid #334155;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Navigation Anchors */
+    .nav-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin: 20px 0;
+    }
+
+    .nav-btn {
+      padding: 10px 22px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      color: var(--text-main);
+      font-size: 14px;
+      font-weight: 700;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-btn:hover, .nav-btn.active {
+      background: #2563eb;
+      border-color: #3b82f6;
+      box-shadow: 0 0 16px rgba(59, 130, 246, 0.5);
+      transform: translateY(-2px);
+    }
+
+    /* Section Wrapper */
+    .section-block {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 32px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-card);
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Control Button Groups */
+    .controls-bar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 8px 14px;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+      color: #fff;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.15);
+    }
+
+    .btn:active {
+      transform: translateY(1px);
+    }
+
+    .btn-idle { background: #334155; border-color: #475569; }
+    .btn-bark { background: #e11d48; border-color: #f43f5e; box-shadow: 0 0 10px rgba(225, 29, 72, 0.4); }
+    .btn-pant { background: #d97706; border-color: #f59e0b; }
+    .btn-tiger { background: linear-gradient(135deg, #ea580c, #b91c1c); border-color: #f97316; box-shadow: 0 0 12px rgba(234, 88, 12, 0.5); }
+    .btn-dragon { background: linear-gradient(135deg, #0284c7, #4f46e5); border-color: #38bdf8; box-shadow: 0 0 12px rgba(2, 132, 199, 0.5); }
+    .btn-sound { background: #0f766e; border-color: #14b8a6; }
+    .btn-reset { background: #475569; border-color: #64748b; }
+
+    /* Grid Showcase 10 Breeds */
+    .breeds-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .dog-card {
+      background: #0f172a;
+      border: 1px solid #1e293b;
+      border-radius: 14px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    .dog-card:hover {
+      border-color: #38bdf8;
+      box-shadow: 0 8px 24px rgba(56, 189, 248, 0.2);
+      transform: translateY(-4px);
+      background: #131f37;
+    }
+
+    .card-top-badges {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .rarity-badge {
+      font-size: 10px;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+    }
+
+    .rarity-ThầnThoại { background: #831843; color: #fbcfe8; border: 1px solid #db2777; }
+    .rarity-SửThi { background: #581c87; color: #e9d5ff; border: 1px solid #9333ea; }
+    .rarity-Hiếm { background: #1e3a8a; color: #bfdbfe; border: 1px solid #3b82f6; }
+    .rarity-Thường { background: #14532d; color: #bbf7d0; border: 1px solid #22c55e; }
+
+    .role-badge {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 10px;
+      color: #94a3b8;
+    }
+
+    .svg-container {
+      width: 100%;
+      height: 220px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 6px 0;
+      overflow: visible;
+    }
+
+    .svg-container svg {
+      max-width: 100%;
+      max-height: 100%;
+      transition: transform 0.2s;
+    }
+
+    .dog-card:hover .svg-container svg {
+      transform: scale(1.05);
+    }
+
+    .dog-info {
+      width: 100%;
+      text-align: center;
+      margin-top: 4px;
+    }
+
+    .dog-name-vi {
+      font-size: 15px;
+      font-weight: 800;
+      color: #f8fafc;
+      margin-bottom: 2px;
+    }
+
+    .dog-name-en {
+      font-size: 11px;
+      color: #94a3b8;
+      margin-bottom: 6px;
+    }
+
+    .dog-traits {
+      font-size: 11px;
+      color: #cbd5e1;
+      background: #1e293b;
+      padding: 6px 10px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      line-height: 1.4;
+      text-align: left;
+      height: 48px;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+
+    .card-actions {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 4px;
+      margin-top: auto;
+    }
+
+    .mini-btn {
+      padding: 4px 6px;
+      font-size: 11px;
+      font-weight: 700;
+      background: #1e293b;
+      border: 1px solid #334155;
+      color: #cbd5e1;
+      border-radius: 6px;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.15s;
+    }
+
+    .mini-btn:hover {
+      background: #38bdf8;
+      color: #0f172a;
+      border-color: #38bdf8;
+    }
+
+    .mini-btn.active {
+      background: #f59e0b;
+      color: #0f172a;
+      border-color: #f59e0b;
+    }
+
+    /* SA BÀN ĐẤU TRƯỜNG 5v5 (Section 2) */
+    .arena-container {
+      position: relative;
+      background: linear-gradient(180deg, #09101f 0%, #0d1b33 50%, #0a1324 100%);
+      border: 2px solid #233152;
+      border-radius: 16px;
+      padding: 24px 16px;
+      overflow: hidden;
+      box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.7);
+    }
+
+    /* Đèn rọi sân khấu */
+    .arena-lights {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      pointer-events: none;
+      background: 
+        radial-gradient(ellipse at 25% 0%, rgba(239, 68, 68, 0.15) 0%, transparent 60%),
+        radial-gradient(ellipse at 75% 0%, rgba(59, 130, 246, 0.15) 0%, transparent 60%);
+    }
+
+    /* Thanh thông tin 2 đội */
+    .arena-header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .team-banner {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 20px;
+      border-radius: 12px;
+      font-weight: 900;
+      font-size: 16px;
+    }
+
+    .team-red-banner {
+      background: linear-gradient(90deg, rgba(220, 38, 38, 0.3) 0%, rgba(153, 27, 27, 0.1) 100%);
+      border: 1px solid var(--red-team);
+      color: #fca5a5;
+      box-shadow: 0 0 20px var(--red-glow);
+    }
+
+    .team-blue-banner {
+      background: linear-gradient(270deg, rgba(37, 99, 235, 0.3) 0%, rgba(30, 58, 138, 0.1) 100%);
+      border: 1px solid var(--blue-team);
+      color: #93c5fd;
+      box-shadow: 0 0 20px var(--blue-glow);
+    }
+
+    .vs-emblem {
+      background: linear-gradient(135deg, #f59e0b, #ea580c);
+      color: #fff;
+      font-size: 22px;
+      font-weight: 900;
+      padding: 8px 18px;
+      border-radius: 50%;
+      box-shadow: 0 0 25px var(--gold-glow);
+      border: 2px solid #fef08a;
+      letter-spacing: 1px;
+    }
+
+    /* Mặt sàn thi đấu 2.5D */
+    .arena-pitch {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 20px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid #1e293b;
+      border-radius: 16px;
+      padding: 30px 10px;
+      backdrop-filter: blur(4px);
+    }
+
+    .battle-side {
+      display: flex;
+      justify-content: space-around;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .fighter-slot {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.2s;
+      width: 110px;
+    }
+
+    .fighter-slot:hover {
+      transform: translateY(-6px);
+    }
+
+    .fighter-svg-wrap {
+      width: 110px;
+      height: 130px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .fighter-svg-wrap svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .fighter-name {
+      font-size: 11px;
+      font-weight: 800;
+      margin-top: 2px;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .center-divider {
+      width: 2px;
+      height: 240px;
+      background: linear-gradient(180deg, transparent 0%, #38bdf8 50%, transparent 100%);
+      box-shadow: 0 0 12px #38bdf8;
+      position: relative;
+    }
+
+    .arena-controls-panel {
+      margin-top: 24px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* Sound Notification Toast */
+    #toast-msg {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #0f172a;
+      border: 1px solid #38bdf8;
+      padding: 12px 20px;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      font-size: 13px;
+      font-weight: 700;
+      display: none;
+      z-index: 1000;
+      animation: fadeIn 0.3s;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .arena-pitch {
+        grid-template-columns: 1fr;
+      }
+      .center-divider {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div class="badge-top">Hệ Thống Nhân Vật Tái Sử Dụng Chibi 2.5D</div>
+      <h1>ĐẤU TRƯỜNG CHÓ SỦA 5v5 (TIKTOK LIVE)</h1>
+      <p class="subtitle">
+        Bộ sưu tập 10 giống chó Chibi siêu sắc nét, 4 trạng thái chuyển động tự chứa (Idle, Sủa, Thở dốc, Hóa Hổ/Rồng),
+        gắn kèm Avatar khán giả, Khăn Bandana theo đội và thanh máu HP. Chạy offline 100% không phụ thuộc thư viện ngoài.
+      </p>
+
+      <div class="stats-row">
+        <div class="stat-pill">🐶 10 Giống Chó Độc Bản</div>
+        <div class="stat-pill">⚡ 4 Trạng Thái Chuyển Động</div>
+        <div class="stat-pill">🔴 vs 🔵 Sa Bàn 5v5 Đối Kháng</div>
+        <div class="stat-pill">🔊 Web Audio Sound Sủa Offline</div>
+        <div class="stat-pill">🎯 Tự Chứa 100% Zero-CDN</div>
+      </div>
+
+      <div class="nav-tabs">
+        <a href="#showcase-section" class="nav-btn active">📋 Khu Vực 1: Showcase 10 Giống Chó</a>
+        <a href="#arena-section" class="nav-btn">⚔️ Khu Vực 2: Sa Bàn Đấu Trường 5v5</a>
+        <a href="index-3d.html" class="nav-btn" style="background: linear-gradient(90deg, #dc2626, #f59e0b); color: #fff; font-weight: 800; border-color: #f59e0b;">🚀 ĐẤU TRƯỜNG 3D WEBGL (MỚI)</a>
+      </div>
+    </header>
+
+    <!-- KHU VỰC 1: BẢNG LƯỚI SHOWCASE 10 GIỐNG CHÓ -->
+    <section id="showcase-section" class="section-block">
+      <div id="showcase-viewport">
+        <div class="section-header">
+          <div class="section-title">
+            <span>📋</span> Bảng Lưới Showcase 10 Giống Chó Chibi 2.5D
+          </div>
+          <div class="controls-bar">
+            <button class="btn btn-idle" onclick="setAllShowcaseState('idle')">🐾 Tất Cả Idle</button>
+            <button class="btn btn-bark" onclick="setAllShowcaseState('barking')">🔊 Tất Cả Sủa</button>
+            <button class="btn btn-pant" onclick="setAllShowcaseState('exhausted')">😮‍💨 Tất Cả Thở Dốc</button>
+            <button class="btn btn-tiger" onclick="setAllShowcaseState('evolved_tiger')">🐯 Hóa Hổ</button>
+            <button class="btn btn-dragon" onclick="setAllShowcaseState('evolved_dragon')">🐉 Hóa Rồng</button>
+            <button class="btn btn-sound" id="sound-toggle-btn" onclick="toggleAudio()">🔊 Âm Thanh: BẬT</button>
+          </div>
+        </div>
+
+        <!-- Lưới 10 Card Chó -->
+        <div class="breeds-grid" id="breeds-showcase-grid">
+          <!-- Render động bằng JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- KHU VỰC 2: SA BÀN ĐẤU TRƯỜNG 5v5 -->
+    <section id="arena-section" class="section-block">
+      <div class="section-header">
+        <div class="section-title">
+          <span>⚔️</span> Sa Bàn Đấu Trường Đối Kháng 5v5
+        </div>
+        <div class="controls-bar">
+          <button class="btn btn-bark" onclick="arenaAction('all_bark')">💥 Toàn Trường Sủa Rực Lửa!</button>
+          <button class="btn btn-tiger" onclick="arenaAction('red_attack')">🔴 Đội Đỏ Áp Đảo</button>
+          <button class="btn btn-dragon" onclick="arenaAction('blue_attack')">🔵 Đội Xanh Phản Công</button>
+          <button class="btn btn-sound" onclick="arenaAction('all_evolve')">🌟 Đại Chiến Thần Thú (Evolve!)</button>
+          <button class="btn btn-pant" onclick="arenaAction('all_pant')">😮‍💨 Toàn Đội Mệt Thở Dốc</button>
+          <button class="btn btn-reset" onclick="arenaAction('reset')">🔄 Khôi Phục Vị Trí (Idle)</button>
+        </div>
+      </div>
+
+      <!-- Sân Đấu Sa Bàn 5v5 -->
+      <div class="arena-container">
+        <div class="arena-lights"></div>
+
+        <div class="arena-header-bar">
+          <!-- Banner Đội Đỏ -->
+          <div class="team-banner team-red-banner">
+            <span>🔥</span>
+            <div>
+              <div>TEAM ĐỎ - CUỒNG NỘ</div>
+              <div style="font-size: 11px; opacity: 0.8; font-weight: 500;">Tổng lực công: 550 Bark Power</div>
+            </div>
+          </div>
+
+          <!-- Huy hiệu VS ở giữa -->
+          <div class="vs-emblem">VS</div>
+
+          <!-- Banner Đội Xanh -->
+          <div class="team-banner team-blue-banner">
+            <div style="text-align: right;">
+              <div>TEAM XANH - BĂNG GIÁ</div>
+              <div style="font-size: 11px; opacity: 0.8; font-weight: 500;">Tổng lực thủ: 490 Bark Power</div>
+            </div>
+            <span>⚡</span>
+          </div>
+        </div>
+
+        <!-- Khung sân đấu 2.5D -->
+        <div class="arena-pitch">
+          <!-- Phe Đỏ (Trái - 5 Chó: Pitbull, Becgie, Husky, Pug, Doberman) -->
+          <div class="battle-side" id="red-team-slot">
+            <!-- Render động bằng JS -->
+          </div>
+
+          <!-- Đường phân cách lôi đài phát sáng -->
+          <div class="center-divider"></div>
+
+          <!-- Phe Xanh (Phải - 5 Chó: Corgi, Shiba, Golden, Poodle, Chó Cỏ) -->
+          <div class="battle-side" id="blue-team-slot">
+            <!-- Render động bằng JS -->
+          </div>
+        </div>
+
+        <!-- Điều khiển thanh máu HP trực quan -->
+        <div class="arena-controls-panel">
+          <div style="display: flex; align-items: center; gap: 10px; background: rgba(30, 41, 59, 0.7); padding: 8px 16px; border-radius: 20px;">
+            <span style="color: #f87171; font-weight: 800; font-size: 12px;">HP Đội Đỏ:</span>
+            <input type="range" id="slider-red-hp" min="0" max="100" value="100" oninput="updateTeamHp('red', this.value)" style="cursor: pointer;">
+            <span id="label-red-hp" style="font-size: 12px; font-weight: 700; width: 35px;">100%</span>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 10px; background: rgba(30, 41, 59, 0.7); padding: 8px 16px; border-radius: 20px;">
+            <span style="color: #60a5fa; font-weight: 800; font-size: 12px;">HP Đội Xanh:</span>
+            <input type="range" id="slider-blue-hp" min="0" max="100" value="100" oninput="updateTeamHp('blue', this.value)" style="cursor: pointer;">
+            <span id="label-blue-hp" style="font-size: 12px; font-weight: 700; width: 35px;">100%</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div id="toast-msg"></div>
+
+  <!-- Nạp Module DogRenderer -->
+  <script src="src/dog-renderer.js"></script>
+
+  <script>
+    // State Quản Lý Giao Diện
+    let isAudioEnabled = true;
+    let audioCtx = null;
+
+    // Danh sách 10 giống chó trạng thái Showcase
+    const showcaseState = {};
+    const showcaseBreeds = DogRenderer.getAllBreeds();
+
+    // 5 Chó Team Đỏ và 5 Chó Team Xanh
+    const teamRedDogs = [
+      { id: 'red_1', breed: 'pitbull', rawNickname: 'Chiến Binh', team: 'red', hp: 100, state: 'idle' },
+      { id: 'red_2', breed: 'becgie', rawNickname: 'Cảnh Khuyển', team: 'red', hp: 100, state: 'idle' },
+      { id: 'red_3', breed: 'husky', rawNickname: 'Thần Ngáo', team: 'red', hp: 100, state: 'idle' },
+      { id: 'red_4', breed: 'pug', rawNickname: 'Mặt Xệ', team: 'red', hp: 100, state: 'idle' },
+      { id: 'red_5', breed: 'doberman', rawNickname: 'Bóng Ma', team: 'red', hp: 100, state: 'idle' }
+    ];
+
+    const teamBlueDogs = [
+      { id: 'blue_1', breed: 'corgi', rawNickname: 'Mông Tròn', team: 'blue', hp: 100, state: 'idle' },
+      { id: 'blue_2', breed: 'shiba', rawNickname: 'Lém Lỉnh', team: 'blue', hp: 100, state: 'idle' },
+      { id: 'blue_3', breed: 'golden', rawNickname: 'Thiên Sứ', team: 'blue', hp: 100, state: 'idle' },
+      { id: 'blue_4', breed: 'poodle', rawNickname: 'Kẹo Bông', team: 'blue', hp: 100, state: 'idle' },
+      { id: 'blue_5', breed: 'chota', rawNickname: 'Làng Quê', team: 'blue', hp: 100, state: 'idle' }
+    ];
+
+    // Khởi tạo trạng thái Showcase
+    showcaseBreeds.forEach(b => {
+      showcaseState[b.id] = {
+        state: 'idle',
+        team: 'none'
+      };
+    });
+
+    /**
+     * Web Audio API mô phỏng tiếng Chó Sủa Chibi tự nhiên (100% Offline)
+     */
+    function playBarkSound(pitchMultiplier = 1) {
+      if (!isAudioEnabled) return;
+      try {
+        if (!audioCtx) {
+          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        if (audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+
+        const now = audioCtx.currentTime;
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+
+        // Tần số sủa "gâu" từ cao xuống trầm nhanh
+        const baseFreq = 340 * pitchMultiplier;
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(baseFreq * 1.6, now);
+        osc.frequency.exponentialRampToValueAtTime(baseFreq * 0.7, now + 0.12);
+
+        // Đường bao âm lượng dứt khoát
+        gain.gain.setValueAtTime(0, now);
+        gain.gain.linearRampToValueAtTime(0.28, now + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.16);
+
+        // Bộ lọc âm định hình tiếng mõm
+        const filter = audioCtx.createBiquadFilter();
+        filter.type = 'bandpass';
+        filter.frequency.setValueAtTime(baseFreq * 1.2, now);
+        filter.Q.setValueAtTime(3.0, now);
+
+        osc.connect(filter);
+        filter.connect(gain);
+        gain.connect(audioCtx.destination);
+
+        osc.start(now);
+        osc.stop(now + 0.17);
+      } catch (e) {
+        // Trình duyệt chặn autoplay audio khi chưa có tương tác
+      }
+    }
+
+    function toggleAudio() {
+      isAudioEnabled = !isAudioEnabled;
+      const btn = document.getElementById('btn-audio-toggle');
+      btn.textContent = isAudioEnabled ? '🔊 Âm Thanh: BẬT' : '🔇 Âm Thanh: TẮT';
+      showToast(isAudioEnabled ? 'Đã bật hiệu ứng âm thanh sủa!' : 'Đã tắt âm thanh.');
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast-msg');
+      toast.textContent = msg;
+      toast.style.display = 'block';
+      setTimeout(() => {
+        toast.style.display = 'none';
+      }, 2000);
+    }
+
+    /**
+     * Render Khu Vực 1: Showcase 10 Giống Chó
+     */
+    function renderShowcase() {
+      const grid = document.getElementById('showcase-grid');
+      grid.innerHTML = '';
+
+      showcaseBreeds.forEach(breed => {
+        const cur = showcaseState[breed.id];
+        const card = document.createElement('div');
+        card.className = 'dog-card';
+
+        const breedNames = {
+          corgi: 'Corgi',
+          shiba: 'Shiba',
+          husky: 'Husky',
+          pitbull: 'Pitbull',
+          pug: 'Pug',
+          poodle: 'Poodle',
+          becgie: 'Becgie',
+          golden: 'Golden',
+          doberman: 'Doberman',
+          chota: 'Chó Cỏ'
+        };
+
+        // Tạo SVG Chibi tương ứng
+        const svgMarkup = DogRenderer.renderToSVG(breed.id, {
+          name: breedNames[breed.id] || breed.nameVi,
+          state: cur.state,
+          team: cur.team,
+          size: 190,
+          showUi: true
+        });
+
+        const rarityClass = 'rarity-' + breed.rarity.replace(/\s+/g, '');
+
+        card.innerHTML = `
+          <div class="card-top-badges">
+            <span class="rarity-badge ${rarityClass}">${breed.rarity}</span>
+            <span class="role-badge">${breed.role}</span>
+          </div>
+
+          <div class="svg-container" id="svg-wrap-${breed.id}" title="Nhấp để nghe tiếng sủa!">
+            ${svgMarkup}
+          </div>
+
+          <div class="dog-info">
+            <div class="dog-name-vi">${breed.nameVi}</div>
+            <div class="dog-name-en">${breed.nameEn}</div>
+            <div class="dog-traits">${breed.specialTrait}</div>
+          </div>
+
+          <div class="card-actions">
+            <button class="mini-btn ${cur.state === 'idle' ? 'active' : ''}" onclick="setSingleBreedState(event, '${breed.id}', 'idle')">Idle</button>
+            <button class="mini-btn ${cur.state === 'barking' ? 'active' : ''}" onclick="setSingleBreedState(event, '${breed.id}', 'barking')">Sủa</button>
+            <button class="mini-btn ${cur.state === 'exhausted' ? 'active' : ''}" onclick="setSingleBreedState(event, '${breed.id}', 'exhausted')">Thở</button>
+            <button class="mini-btn ${cur.state.startsWith('evolved') ? 'active' : ''}" onclick="setSingleBreedState(event, '${breed.id}', 'evolved_tiger')">Tiến Hóa</button>
+          </div>
+        `;
+
+        // Click trực tiếp vào card -> Kích hoạt sủa riêng lẻ
+        card.onclick = (e) => {
+          if (e.target.tagName.toLowerCase() === 'button') return;
+          setSingleBreedState(e, breed.id, 'barking');
+          playBarkSound(getPitchForBreed(breed.id));
+          showToast(`${breed.nameVi}: GÂU GÂU! 🐾`);
+        };
+
+        grid.appendChild(card);
+      });
+    }
+
+    function getPitchForBreed(breedId) {
+      // Âm vực sủa: Chó nhỏ the thé, chó to trầm vang
+      const pitches = {
+        poodle: 1.6, pug: 1.3, corgi: 1.2, shiba: 1.15,
+        chota: 1.0, husky: 0.9, golden: 0.85, becgie: 0.8,
+        pitbull: 0.75, doberman: 0.7
+      };
+      return pitches[breedId] || 1.0;
+    }
+
+    function setSingleBreedState(e, breedId, newState) {
+      if (e) e.stopPropagation();
+      showcaseState[breedId].state = newState;
+      if (newState === 'barking') {
+        playBarkSound(getPitchForBreed(breedId));
+      }
+      renderShowcase();
+    }
+
+    function setAllShowcaseState(newState) {
+      showcaseBreeds.forEach(b => {
+        showcaseState[b.id].state = newState;
+      });
+      if (newState === 'barking') {
+        playBarkSound(1.1);
+        setTimeout(() => playBarkSound(0.85), 100);
+      }
+      renderShowcase();
+      showToast(`Toàn bộ 10 giống chó chuyển sang trạng thái: ${newState.toUpperCase()}`);
+    }
+
+    /**
+     * Render Khu Vực 2: Sa Bàn Đấu Trường 5v5
+     */
+    function renderArena() {
+      const redSlot = document.getElementById('red-team-slot');
+      const blueSlot = document.getElementById('blue-team-slot');
+
+      redSlot.innerHTML = '';
+      blueSlot.innerHTML = '';
+
+      // Render 5 Đội Đỏ (Quay mặt sang phải)
+      teamRedDogs.forEach(dog => {
+        const slot = document.createElement('div');
+        slot.className = 'fighter-slot';
+        slot.id = `slot-${dog.id}`;
+
+        const svgMarkup = DogRenderer.renderToSVG(dog.breed, {
+          name: dog.rawNickname,
+          team: 'red',
+          hp: dog.hp,
+          state: dog.state,
+          size: 130,
+          showUi: true,
+          mirror: false // Bên trái quay mặt sang phải
+        });
+
+        slot.innerHTML = `
+          <div class="fighter-svg-wrap" onclick="fighterBark('${dog.id}', 'red')">
+            ${svgMarkup}
+          </div>
+          <div class="fighter-name" style="color: #f87171;">${dog.rawNickname}</div>
+        `;
+        redSlot.appendChild(slot);
+      });
+
+      // Render 5 Đội Xanh (Tự động lật quay mặt sang trái)
+      teamBlueDogs.forEach(dog => {
+        const slot = document.createElement('div');
+        slot.className = 'fighter-slot';
+        slot.id = `slot-${dog.id}`;
+
+        const svgMarkup = DogRenderer.renderToSVG(dog.breed, {
+          name: dog.rawNickname,
+          team: 'blue',
+          hp: dog.hp,
+          state: dog.state,
+          size: 130,
+          showUi: true,
+          mirror: true // Bên phải lật mặt sang trái
+        });
+
+        slot.innerHTML = `
+          <div class="fighter-svg-wrap" onclick="fighterBark('${dog.id}', 'blue')">
+            ${svgMarkup}
+          </div>
+          <div class="fighter-name" style="color: #60a5fa;">${dog.rawNickname}</div>
+        `;
+        blueSlot.appendChild(slot);
+      });
+    }
+
+    function fighterBark(id, team) {
+      const list = team === 'red' ? teamRedDogs : teamBlueDogs;
+      const fighter = list.find(d => d.id === id);
+      if (fighter) {
+        fighter.state = 'barking';
+        playBarkSound(getPitchForBreed(fighter.breed));
+        renderArena();
+        setTimeout(() => {
+          fighter.state = 'idle';
+          renderArena();
+        }, 1800);
+      }
+    }
+
+    function arenaAction(action) {
+      switch (action) {
+        case 'all_bark':
+          teamRedDogs.forEach(d => d.state = 'barking');
+          teamBlueDogs.forEach(d => d.state = 'barking');
+          playBarkSound(0.8);
+          setTimeout(() => playBarkSound(1.2), 120);
+          showToast('Đại hỗn chiến sủa vang trời!');
+          break;
+
+        case 'red_attack':
+          teamRedDogs.forEach(d => d.state = 'barking');
+          teamBlueDogs.forEach(d => d.state = 'exhausted');
+          playBarkSound(0.75);
+          showToast('Team Đỏ sủa áp đảo, Team Xanh kiệt sức!');
+          break;
+
+        case 'blue_attack':
+          teamBlueDogs.forEach(d => d.state = 'barking');
+          teamRedDogs.forEach(d => d.state = 'exhausted');
+          playBarkSound(1.3);
+          showToast('Team Xanh phản công sấm sét, Team Đỏ choáng váng!');
+          break;
+
+        case 'all_evolve':
+          teamRedDogs.forEach(d => d.state = 'evolved_tiger');
+          teamBlueDogs.forEach(d => d.state = 'evolved_dragon');
+          playBarkSound(0.7);
+          showToast('SONG ĐẤU THẦN THÚ: Hóa Hổ vs Hóa Rồng!');
+          break;
+
+        case 'all_pant':
+          teamRedDogs.forEach(d => d.state = 'exhausted');
+          teamBlueDogs.forEach(d => d.state = 'exhausted');
+          showToast('Hai đội cạn thể lực, đồng loạt thở dốc!');
+          break;
+
+        case 'reset':
+        default:
+          teamRedDogs.forEach(d => { d.state = 'idle'; d.hp = 100; });
+          teamBlueDogs.forEach(d => { d.state = 'idle'; d.hp = 100; });
+          document.getElementById('slider-red-hp').value = 100;
+          document.getElementById('slider-blue-hp').value = 100;
+          document.getElementById('label-red-hp').textContent = '100%';
+          document.getElementById('label-blue-hp').textContent = '100%';
+          showToast('Đã khôi phục trạng thái chuẩn bị!');
+          break;
+      }
+      renderArena();
+    }
+
+    function updateTeamHp(team, hpValue) {
+      const val = parseInt(hpValue, 10);
+      if (team === 'red') {
+        teamRedDogs.forEach(d => d.hp = val);
+        document.getElementById('label-red-hp').textContent = `${val}%`;
+      } else {
+        teamBlueDogs.forEach(d => d.hp = val);
+        document.getElementById('label-blue-hp').textContent = `${val}%`;
+      }
+      renderArena();
+    }
+
+    // Khởi chạy khi load trang
+    window.addEventListener('DOMContentLoaded', () => {
+      renderShowcase();
+      renderArena();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+const fs=require('node:fs'),path=require('node:path');
+const root=path.resolve(__dirname,'..'),out=path.join(root,'dist');
+fs.mkdirSync(out,{recursive:true});
+for(const file of ['index.html','index-3d.html','showcase-2d.html'])fs.copyFileSync(path.join(root,file),path.join(out,file));
+for(const dir of ['src','assets','docs','lib'])fs.cpSync(path.join(root,dir),path.join(out,dir),{recursive:true});
+fs.mkdirSync(path.join(out,'scripts'),{recursive:true});
+fs.copyFileSync(path.join(root,'scripts/serve.cjs'),path.join(out,'scripts/serve.cjs'));
+fs.writeFileSync(path.join(out,'package.json'),JSON.stringify({name:'cho-battle-static',private:true,scripts:{start:'node scripts/serve.cjs'}},null,2));
+fs.writeFileSync(path.join(out,'README.md'),"# Chó Battle — bản static tự chứa\n\nChạy local bằng Node.js 20+: npm start. Mở http://127.0.0.1:4173. Không cần npm install.\n\nĐưa toàn bộ thư mục lên static hosting có HTTPS để chạy online. Không mở trực tiếp index.html bằng file:// vì trình duyệt chặn tải module/model.\n\nOBS Browser Source: http://127.0.0.1:4173/?capture=1, 1080 × 1920. Dùng Interact để bấm Bắt đầu và mở âm thanh. Studio và capture là hai phiên độc lập. Có thể Window Capture Studio và crop khung 9:16 để điều khiển cùng phiên.\n\nCó 5 giống chó, hổ và rồng có rig/animation, hai tiếng gâu từ bản thu thật, trận 5v5/90 giây và bảng chọn preview model. Đây là demo chuẩn bị asset, chưa nối TikTok LIVE/quà thật, chưa có tiếng gầm hổ/rồng.\n\nNguồn và giấy phép: docs/ASSET-SOURCES.md; URL tải và SHA256: assets/manifest.json; bằng chứng giấy phép: assets/licenses/. Model/audio CC0, Three.js MIT.\n\nBản showcase trước: index-3d.html, showcase-2d.html.\n");
+console.log('Static game prepared: '+out);

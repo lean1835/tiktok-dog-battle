@@ -1,0 +1,31 @@
+{
+  "sampleRate": 32000,
+  "channels": 1,
+  "playbackRate": 1,
+  "sourceSha256": "75655fe1bb7415dcd5af93fee82224544bdb03580e710b35e7547388281ab3d5",
+  "processing": "Natural rate; mono resample; DC removal; RMS normalization with peak ceiling; 10ms fades. Bark-growl appends the real growl after the existing clear bark.",
+  "profiles": [
+    {
+      "id": "growl",
+      "label": "Gầm gừ thật",
+      "kind": "recording",
+      "author": "bonebrah",
+      "source": "https://opengameart.org/content/dog-growl",
+      "license": "CC0-1.0",
+      "clips": [
+        {
+          "id": "growl-short",
+          "path": "assets/audio/growl-bank/growl-short.wav",
+          "duration": 0.6784375,
+          "sha256": "8f68b4007bf4a6f1105819d78efede73ad1d11283e66f59168a8d509e21bbac2"
+        },
+        {
+          "id": "bark-growl",
+          "path": "assets/audio/growl-bank/bark-growl.wav",
+          "duration": 1.2124375,
+          "sha256": "ba6ed2d612fc81b942ae23d0c5ed9cd92584946d8f00c38efaf887fbc2987f9c"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "round",
+  "author": "fennelliott",
+  "soundId": 347364,
+  "source": "https://freesound.org/people/fennelliott/sounds/347364/",
+  "download": "https://cdn.freesound.org/previews/347/347364_6207707-hq.mp3",
+  "license": "CC0-1.0",
+  "duration": 2.1,
+  "sampleRate": 32000,
+  "groups": [
+    [
+      0.2,
+      1.45,
+      0.1774
+    ],
+    [
+      1.625,
+      1.975,
+      0.1502
+    ]
+  ]
+}

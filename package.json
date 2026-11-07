@@ -1,0 +1,33 @@
+{
+  "name": "tiktok-dog-battle",
+  "version": "2.0.0-rc.1",
+  "description": "Tuất Live: TikTok interactions, authoritative local server, persistent 5v5 3D battle and portrait overlay",
+  "main": "scripts/launch.cjs",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "node scripts/serve.cjs",
+    "test": "node --test test/assets.test.cjs test/audio-session.test.cjs test/bark-bank.test.cjs test/bark-playback.test.cjs test/camera-renderer.test.cjs test/live-audio-integration.test.cjs test/live-broadcast.test.cjs test/live-camera.test.cjs test/live-engine.test.cjs test/model-presentation.test.cjs test/server-adapter.test.cjs test/server-runtime.test.cjs test/server-session.test.cjs test/server-speech.test.cjs test/pronunciation.test.cjs test/server-websocket.test.cjs",
+    "check": "node scripts/check.cjs",
+    "build": "node scripts/build-live.cjs",
+    "launch": "node scripts/launch.cjs",
+    "package": "node scripts/package-live.cjs",
+    "rehearse": "node scripts/rehearse-live.cjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "msedge-tts": "2.1.1",
+    "three": "^0.187.0",
+    "tiktok-live-connector": "2.5.0",
+    "ws": "8.22.1"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

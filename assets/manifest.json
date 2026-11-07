@@ -1,0 +1,122 @@
+{
+  "verifiedOn": "2026-11-03",
+  "assets": [
+    {
+      "id": "shiba",
+      "name": "Shiba vàng",
+      "path": "assets/models/shiba.glb",
+      "download": "https://raw.githubusercontent.com/agentkaerf/FreeModels/main/Ultimate%20Animated%20Animals%20-%20July%202021/glTF/ShibaInu.gltf",
+      "source": "https://quaternius.com/packs/ultimateanimatedanimals.html",
+      "author": "Quaternius",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sha256": "8302af941f144185c1afbde4ad8cc79358b575311deea23be4fbcd3d367f50a8",
+      "bytes": 1752268,
+      "changes": "Embedded glTF repackaged losslessly as GLB; runtime scale normalization, shadows and lighting."
+    },
+    {
+      "id": "husky",
+      "name": "Husky",
+      "path": "assets/models/husky.glb",
+      "download": "https://raw.githubusercontent.com/agentkaerf/FreeModels/main/Ultimate%20Animated%20Animals%20-%20July%202021/glTF/Husky.gltf",
+      "source": "https://quaternius.com/packs/ultimateanimatedanimals.html",
+      "author": "Quaternius",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sha256": "d5e33b7f9ffc92e5278df5035f86e8749f14c5ff8d9c79a922b2e8c1c906fcec",
+      "bytes": 1849832,
+      "changes": "Embedded glTF repackaged losslessly as GLB; runtime scale normalization, shadows and lighting."
+    },
+    {
+      "id": "pug",
+      "name": "Pug",
+      "path": "assets/models/pug.glb",
+      "download": "https://raw.githubusercontent.com/agentkaerf/FreeModels/main/Zombie%20Apocalypse%20Kit%20-%20March%202024/Characters/glTF/Characters_Pug.gltf",
+      "source": "https://quaternius.com/packs/zombieapocalypsekit.html",
+      "author": "Quaternius",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sha256": "7784de2b6f7cfb9ae23890088da3a6220c15baf1ab16e90f9b1ae4eace691c1b",
+      "bytes": 568268,
+      "changes": "Embedded glTF repackaged losslessly as GLB; runtime scale normalization, shadows and lighting."
+    },
+    {
+      "id": "becgie",
+      "name": "Becgie",
+      "path": "assets/models/becgie.glb",
+      "download": "https://raw.githubusercontent.com/agentkaerf/FreeModels/main/Zombie%20Apocalypse%20Kit%20-%20March%202024/Characters/glTF/Characters_GermanShepherd.gltf",
+      "source": "https://quaternius.com/packs/zombieapocalypsekit.html",
+      "author": "Quaternius",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sha256": "f5627d2a01bc5b0b4931de0d79e1b7e85563cc98f5f41d447d8904a80cb3f0a8",
+      "bytes": 770856,
+      "changes": "Embedded glTF repackaged losslessly as GLB; runtime scale normalization, shadows and lighting."
+    },
+    {
+      "id": "dragon",
+      "name": "Rồng thiên không",
+      "path": "assets/models/dragon.glb",
+      "download": "https://static.poly.pizza/90ed3740-d8c4-4910-88ce-ac2ed426022d.glb",
+      "source": "https://poly.pizza/m/LlwD0QNUPj",
+      "author": "Quaternius",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sha256": "f660d8f48be4ea3f39639f6206a0181127e7fe7503cb4bad8d07d27d80528f3a",
+      "bytes": 436000,
+      "changes": "Runtime scale normalization, animation aliasing, shadows and lighting."
+    },
+    {
+      "id": "corgi",
+      "name": "Corgi",
+      "path": "assets/models/corgi.glb",
+      "download": "https://gobkit.com/freebies/animal/Corgi.glb",
+      "source": "https://gobkit.com/freebies",
+      "author": "Gobkit",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sha256": "7137f257c72d7171ae5416dabf1df75b3b4ebfd5cab226354b14dc0ae720cf68",
+      "bytes": 106928,
+      "changes": "Runtime scale normalization, shadows and lighting."
+    },
+    {
+      "id": "tiger",
+      "name": "Hổ vằn",
+      "path": "assets/models/tiger.glb",
+      "download": "https://gobkit.com/freebies/animal008/Tiger.glb",
+      "source": "https://gobkit.com/freebies",
+      "author": "Gobkit",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sha256": "1d6920ffae3cc64a655f41bdeaa9a978532e32018f02abc2a9d051dd6d548976",
+      "bytes": 106812,
+      "changes": "Runtime scale normalization, shadows and lighting."
+    },
+    {
+      "id": "bark-small",
+      "name": "bark-small",
+      "path": "assets/audio/bark-small.mp3",
+      "download": "https://cdn.freesound.org/previews/452/452180_612689-hq.mp3",
+      "source": "https://freesound.org/people/kyles/sounds/452180/",
+      "author": "kyles",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sha256": "83016b648e1484e5a48260fc7bbbdad60e1ff93296b9234bcc27ffd070484415",
+      "bytes": 74784,
+      "changes": "HQ MP3 preview. Converted to trimmed, faded mono WAV variations by prepare-audio.py."
+    },
+    {
+      "id": "bark-medium",
+      "name": "bark-medium",
+      "path": "assets/audio/bark-medium.mp3",
+      "download": "https://cdn.freesound.org/previews/749/749351_16213215-hq.mp3",
+      "source": "https://freesound.org/people/wateenfotos/sounds/749351/",
+      "author": "wateenfotos",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sha256": "c9a63a07a8b90d1ef64a364ad171c66cc685554a53104366868f25a8cdd4b1a2",
+      "bytes": 130752,
+      "changes": "HQ MP3 preview. Converted to trimmed, faded mono WAV variations by prepare-audio.py."
+    }
+  ]
+}

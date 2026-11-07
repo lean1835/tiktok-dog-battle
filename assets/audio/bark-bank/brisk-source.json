@@ -1,0 +1,27 @@
+{
+  "id": "brisk",
+  "author": "16FVolejnikovaA",
+  "soundId": 498394,
+  "source": "https://freesound.org/people/16FVolejnikovaA/sounds/498394/",
+  "download": "https://cdn.freesound.org/previews/498/498394_10816113-hq.mp3",
+  "license": "CC0-1.0",
+  "duration": 2.496,
+  "sampleRate": 48000,
+  "groups": [
+    [
+      0.225,
+      0.375,
+      0.3463
+    ],
+    [
+      0.975,
+      1.125,
+      0.3684
+    ],
+    [
+      1.95,
+      2.075,
+      0.4842
+    ]
+  ]
+}

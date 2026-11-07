@@ -1,0 +1,42 @@
+{
+  "id": "shepherd",
+  "author": "Vrymaa",
+  "soundId": 737885,
+  "source": "https://freesound.org/people/Vrymaa/sounds/737885/",
+  "download": "https://cdn.freesound.org/previews/737/737885_13973196-hq.mp3",
+  "license": "CC0-1.0",
+  "duration": 5.481458333333333,
+  "sampleRate": 48000,
+  "groups": [
+    [
+      0.225,
+      0.65,
+      0.426
+    ],
+    [
+      0.775,
+      0.875,
+      0.1902
+    ],
+    [
+      1.575,
+      2.025,
+      0.4008
+    ],
+    [
+      2.125,
+      2.3,
+      0.3751
+    ],
+    [
+      2.5,
+      2.7,
+      0.449
+    ],
+    [
+      4.95,
+      5.125,
+      0.4415
+    ]
+  ]
+}

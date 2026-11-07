@@ -1,0 +1,22 @@
+[
+  {
+    "path": "assets/audio/bark-small.wav",
+    "duration": 0.85,
+    "sampleRate": 48000,
+    "channels": 1,
+    "peakDb": -3,
+    "source": "bark-small.mp3",
+    "sourceStart": 0.765,
+    "sha256": "00449ca1b665d1238b2ce3d9f985f4206c38cd6cbf8fa0fc100c74481b9d080c"
+  },
+  {
+    "path": "assets/audio/bark-medium.wav",
+    "duration": 0.85,
+    "sampleRate": 48000,
+    "channels": 1,
+    "peakDb": -3,
+    "source": "bark-medium.mp3",
+    "sourceStart": 0.485,
+    "sha256": "8b0e143661e2e62dc0da4cfe0d611af0fa10e13cdc23223de4dd2ba6fd1b4426"
+  }
+]

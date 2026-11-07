@@ -1,0 +1,32 @@
+{
+  "id": "corgi",
+  "name": "Corgi",
+  "format": "glb",
+  "url": "https://gobkit.com/freebies/animal/Corgi.glb",
+  "rigged": true,
+  "lowPoly": true,
+  "fps": 24,
+  "animations": [
+    {
+      "name": "idle",
+      "from": 0,
+      "to": 29
+    },
+    {
+      "name": "attack",
+      "from": 30,
+      "to": 59
+    },
+    {
+      "name": "dead",
+      "from": 60,
+      "to": 89
+    },
+    {
+      "name": "walk",
+      "from": 90,
+      "to": 119
+    }
+  ],
+  "license": "CC0 1.0 (public domain) \u2014 free for any use, commercial or personal, no attribution required."
+}

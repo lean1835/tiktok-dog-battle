@@ -1,0 +1,17 @@
+{
+  "id": "toy",
+  "author": "Glitchedtones",
+  "soundId": 372523,
+  "source": "https://freesound.org/people/Glitchedtones/sounds/372523/",
+  "download": "https://cdn.freesound.org/previews/372/372523_3294528-hq.mp3",
+  "license": "CC0-1.0",
+  "duration": 0.5689115646258504,
+  "sampleRate": 44100,
+  "groups": [
+    [
+      0.275,
+      0.375,
+      0.2895
+    ]
+  ]
+}

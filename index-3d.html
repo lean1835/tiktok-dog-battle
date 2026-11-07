@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Đấu Trường Chó Sủa 3D - 5v5 Xóm Phố Việt Nam (Three.js WebGL)</title>
+  <style>
+    /* Reset & Base - 100% Offline Zero External CDN */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    :root {
+      --bg-dark: #0a0e17;
+      --red-team: #ef4444;
+      --blue-team: #3b82f6;
+      --gold: #f59e0b;
+      --pink: #ec4899;
+      --green: #10b981;
+      --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: #f8fafc;
+      font-family: var(--font-stack);
+      overflow: hidden;
+      width: 100vw;
+      height: 100vh;
+      position: relative;
+    }
+
+    /* WebGL Canvas */
+    #webgl-canvas-container {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+
+    canvas#dog-webgl-canvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* UI Overlay Layer */
+    .ui-layer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+      pointer-events: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 16px;
+    }
+
+    .interactive {
+      pointer-events: auto;
+    }
+
+    /* Top Header Bar */
+    header.arena-header {
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.92) 0%, rgba(15, 23, 42, 0.65) 100%);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      max-width: 1280px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .header-titles h1 {
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      background: linear-gradient(90deg, #f87171, #fbbf24, #60a5fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .header-titles p {
+      font-size: 12px;
+      color: #94a3b8;
+    }
+
+    .morales-display {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: rgba(0, 0, 0, 0.35);
+      padding: 6px 16px;
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .team-badge {
+      font-weight: 800;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .team-badge.red { color: #f87171; }
+    .team-badge.blue { color: #60a5fa; }
+
+    .vs-tag {
+      font-weight: 900;
+      font-size: 14px;
+      color: #fbbf24;
+      text-shadow: 0 0 8px rgba(251, 191, 36, 0.6);
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .top-btn {
+      background: rgba(30, 41, 59, 0.85);
+      border: 1px solid #334155;
+      color: #f1f5f9;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 8px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .top-btn:hover {
+      background: #334155;
+      transform: translateY(-1px);
+    }
+
+    .top-btn.active {
+      background: #2563eb;
+      border-color: #3b82f6;
+    }
+
+    /* Cam Views & Mode Selector */
+    .cam-presets {
+      position: absolute;
+      top: 90px;
+      left: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .cam-btn {
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid #334155;
+      color: #cbd5e1;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 7px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.2s;
+    }
+
+    .cam-btn:hover, .cam-btn.active {
+      background: #f59e0b;
+      color: #0f172a;
+      border-color: #d97706;
+      box-shadow: 0 0 12px rgba(245, 158, 11, 0.4);
+    }
+
+    /* Bottom Control Bar */
+    .bottom-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      gap: 16px;
+    }
+
+    .actions-panel {
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.85) 0%, rgba(15, 23, 42, 0.95) 100%);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 18px;
+      padding: 14px 20px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    }
+
+    .action-btn {
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 800;
+      color: #fff;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    .action-btn:hover {
+      transform: translateY(-3px) scale(1.03);
+    }
+
+    .action-btn:active {
+      transform: translateY(1px) scale(0.97);
+    }
+
+    .btn-red {
+      background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%);
+      box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
+    }
+
+    .btn-blue {
+      background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, #f59e0b 0%, #b45309 100%);
+      box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+    }
+
+    .btn-pink {
+      background: linear-gradient(135deg, #ec4899 0%, #be185d 100%);
+      box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4);
+    }
+
+    .btn-slate {
+      background: rgba(30, 41, 59, 0.9);
+      border: 1px solid #475569;
+      color: #94a3b8;
+    }
+
+    /* Giant "GÂU" Bark Button */
+    .giant-bark-container {
+      position: relative;
+    }
+
+    .giant-bark-btn {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, #fef08a 0%, #f59e0b 40%, #dc2626 100%);
+      border: 5px solid #ffffff;
+      box-shadow: 
+        0 10px 30px rgba(220, 38, 38, 0.6),
+        0 0 35px rgba(245, 158, 11, 0.8),
+        inset 0 -6px 12px rgba(0, 0, 0, 0.4);
+      color: #ffffff;
+      font-weight: 900;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+      animation: giantPulse 2.2s infinite alternate ease-in-out;
+    }
+
+    @keyframes giantPulse {
+      0% { transform: scale(1); box-shadow: 0 10px 30px rgba(220, 38, 38, 0.6), 0 0 25px rgba(245, 158, 11, 0.6); }
+      100% { transform: scale(1.06); box-shadow: 0 12px 35px rgba(220, 38, 38, 0.8), 0 0 45px rgba(245, 158, 11, 0.9); }
+    }
+
+    .giant-bark-btn:hover {
+      transform: scale(1.12) rotate(-3deg);
+    }
+
+    .giant-bark-btn:active, .giant-bark-btn.pushed {
+      transform: scale(0.92) rotate(2deg);
+      box-shadow: 0 4px 15px rgba(220, 38, 38, 0.7);
+    }
+
+    .giant-bark-text {
+      font-size: 34px;
+      line-height: 1;
+      text-shadow: 0 3px 6px rgba(0, 0, 0, 0.6), 0 0 10px #7f1d1d;
+    }
+
+    .giant-bark-sub {
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 800;
+      margin-top: 4px;
+      color: #fef08a;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+    }
+
+    /* Showcase Side Drawer */
+    .showcase-drawer {
+      position: absolute;
+      top: 140px;
+      right: 16px;
+      width: 320px;
+      z-index: 100;
+      background: rgba(15, 23, 42, 0.94);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: -10px 10px 30px rgba(0, 0, 0, 0.6);
+      display: none;
+      flex-direction: column;
+      gap: 12px;
+      max-height: calc(100vh - 120px);
+      overflow-y: auto;
+    }
+
+    .showcase-drawer.open {
+      display: flex;
+    }
+
+    .drawer-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: #fbbf24;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #334155;
+      padding-bottom: 8px;
+    }
+
+    .close-drawer {
+      background: none;
+      border: none;
+      color: #94a3b8;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .breed-selector-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px;
+    }
+
+    .breed-pill {
+      background: #1e293b;
+      border: 1px solid #334155;
+      color: #f1f5f9;
+      padding: 8px;
+      border-radius: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.15s;
+    }
+
+    .breed-pill:hover, .breed-pill.selected {
+      background: #f59e0b;
+      color: #0f172a;
+      border-color: #d97706;
+    }
+
+    .selected-breed-details {
+      background: rgba(30, 41, 59, 0.6);
+      border-radius: 10px;
+      padding: 12px;
+      font-size: 12px;
+    }
+
+    .selected-breed-details h3 {
+      font-size: 14px;
+      color: #f8fafc;
+      margin-bottom: 4px;
+    }
+
+    .trait-badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 12px;
+      background: rgba(245, 158, 11, 0.2);
+      color: #fbbf24;
+      font-weight: 700;
+      font-size: 10px;
+      margin-bottom: 8px;
+    }
+
+    /* Status Toast */
+    #battle-toast {
+      position: absolute;
+      top: 90px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid #f59e0b;
+      color: #f8fafc;
+      padding: 10px 24px;
+      border-radius: 30px;
+      font-weight: 800;
+      font-size: 14px;
+      box-shadow: 0 0 20px rgba(245, 158, 11, 0.5);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 50;
+      text-align: center;
+    }
+
+    #battle-toast.visible {
+      opacity: 1;
+    }
+
+    /* TikTok Vertical 9:16 Adaptive Frame (Cho OBS) */
+    @media (max-aspect-ratio: 9/15) {
+      header.arena-header {
+        flex-direction: column;
+        gap: 8px;
+        padding: 10px;
+      }
+      .header-titles h1 { font-size: 16px; }
+      .actions-panel {
+        padding: 10px;
+        gap: 6px;
+      }
+      .action-btn {
+        padding: 8px 12px;
+        font-size: 11px;
+      }
+      .giant-bark-btn {
+        width: 110px;
+        height: 110px;
+      }
+      .giant-bark-text { font-size: 26px; }
+      .cam-presets { display: none; }
+      #battle-toast { top: 160px; }
+      .showcase-drawer {
+        top: 150px;
+        left: 16px;
+        right: 16px;
+        width: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 3D Three.js WebGL Viewport -->
+  <div id="webgl-canvas-container">
+    <canvas id="dog-webgl-canvas"></canvas>
+  </div>
+
+  <!-- UI Overlay -->
+  <div class="ui-layer">
+    <!-- Header -->
+    <header class="arena-header interactive">
+      <div class="header-titles">
+        <h1>🐾 ĐẤU TRƯỜNG CHÓ SỦA 3D 💥</h1>
+        <p>Sa Bàn Xóm Phố Việt Nam • 10 Giống Loài Procedural • Góc nhìn Isometric</p>
+      </div>
+
+      <div class="morales-display">
+        <div class="team-badge red">🔴 XÓM ĐỎ <span id="hp-text-red">100%</span></div>
+        <div class="vs-tag">VS</div>
+        <div class="team-badge blue">🔵 XÓM XANH <span id="hp-text-blue">100%</span></div>
+      </div>
+
+      <div class="header-actions">
+        <a href="index.html" class="top-btn" style="text-decoration: none;">🎨 Bản 2.5D Chibi</a>
+        <button class="top-btn" id="btn-toggle-showcase">📖 Bách Khoa 10 Loài</button>
+        <button class="top-btn" id="btn-toggle-sound">🔊 Âm Thanh: BẬT</button>
+        <button class="top-btn" id="btn-toggle-obs">📺 OBS Mode</button>
+      </div>
+    </header>
+
+    <!-- Camera Presets -->
+    <div class="cam-presets interactive">
+      <button class="cam-btn active" data-cam="iso">📐 Góc Isometric Xóm Phố</button>
+      <button class="cam-btn" data-cam="front">⚔️ Đối Đầu Trực Diện</button>
+      <button class="cam-btn" data-cam="pitbull">🎯 Cận Cảnh Pitbull</button>
+      <button class="cam-btn" data-cam="corgi">🍑 Cận Cảnh Corgi</button>
+      <button class="cam-btn" data-cam="piggy">🐷 Cận Cảnh Heo Bựa</button>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="battle-toast">GÂU! Toàn xóm sủa vang rực lửa!</div>
+
+    <!-- Bottom Controls & Giant Bark Button -->
+    <div class="bottom-wrapper">
+      <div class="actions-panel interactive">
+        <button class="action-btn btn-gold" id="btn-all-bark">🔊 Toàn Xóm Sủa Vang</button>
+        <button class="action-btn btn-red" id="btn-red-attack">🔴 Xóm Đỏ Áp Đảo</button>
+        <button class="action-btn btn-blue" id="btn-blue-counter">🔵 Xóm Xanh Phản Công</button>
+        <button class="action-btn btn-gold" id="btn-all-evolve">🔥 Đại Chiến Thần Thú</button>
+        <button class="action-btn btn-pink" id="btn-piggy-oink">🐷 Heo Bựa Kêu Éc Éc</button>
+        <button class="action-btn btn-slate" id="btn-reset-battle">🔄 Đặt Lại Trận</button>
+      </div>
+
+      <!-- Giant Bark Button -->
+      <div class="giant-bark-container interactive">
+        <button class="giant-bark-btn" id="giant-bark-btn" title="Bấm để kích hoạt tiếng sủa chấn động!">
+          <span class="giant-bark-text">GÂU!</span>
+          <span class="giant-bark-sub">SỦA BỰA 3D</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Showcase Drawer -->
+  <div class="showcase-drawer interactive" id="showcase-drawer">
+    <div class="drawer-title">
+      <span>10 GIỐNG / LOÀI PROCEDURAL 3D</span>
+      <button class="close-drawer" id="btn-close-drawer">✖</button>
+    </div>
+    <div class="breed-selector-grid" id="breed-grid">
+      <!-- Generated via JS -->
+    </div>
+    <div class="selected-breed-details" id="breed-details">
+      <h3 id="detail-name">Chó Ta Vàng Mr Vàng</h3>
+      <span class="trait-badge" id="detail-role">Đấu Sĩ • Huyền Thoại</span>
+      <p id="detail-trait" style="color: #cbd5e1; margin-bottom: 8px;">Đặc trưng: Lông vàng rơm, đuôi cong vắt vẻo, tinh ranh khôn ngoan.</p>
+      <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+        <button class="cam-btn" style="padding: 4px 8px;" id="btn-inspect-bark">Sủa 3D</button>
+        <button class="cam-btn" style="padding: 4px 8px;" id="btn-inspect-walk">Đi bộ</button>
+        <button class="cam-btn" style="padding: 4px 8px;" id="btn-inspect-pant">Thở dốc</button>
+        <button class="cam-btn" style="padding: 4px 8px;" id="btn-inspect-evolve">Hóa thần thú</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts: 100% Local Bundled Three.js and Dog3DEngine -->
+  <script src="lib/three.min.js"></script>
+  <script src="src/dog-3d-engine.js"></script>
+
+  <script>
+    (function () {
+      'use strict';
+
+      // 1. Kiểm tra môi trường Three.js
+      if (typeof THREE === 'undefined' || typeof Dog3DEngine === 'undefined') {
+        console.error('Không thể tải Three.js hoặc Dog3DEngine cục bộ!');
+        return;
+      }
+
+      const canvas = document.getElementById('dog-webgl-canvas');
+      const container = document.getElementById('webgl-canvas-container');
+
+      // 2. Khởi tạo Three.js Scene, Camera, Renderer
+      const scene = new THREE.Scene();
+      scene.background = new THREE.Color(0x0a0e17);
+      scene.fog = new THREE.FogExp2(0x0a0e17, 0.018);
+
+      const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+      const camTargets = {
+        iso: { pos: new THREE.Vector3(20, 25, 24), target: new THREE.Vector3(0, 0, 0) },
+        front: { pos: new THREE.Vector3(0, 6, 22), target: new THREE.Vector3(0, 1.5, 0) },
+        pitbull: { pos: new THREE.Vector3(-9, 3.5, 5), target: new THREE.Vector3(-4.8, 1.2, 0) },
+        corgi: { pos: new THREE.Vector3(9, 3.5, 5), target: new THREE.Vector3(4.8, 1.0, 0) },
+        piggy: { pos: new THREE.Vector3(12, 3.5, 11), target: new THREE.Vector3(7.8, 1.1, 6.8) }
+      };
+
+      let currentCamPreset = 'iso';
+      camera.position.copy(camTargets.iso.pos);
+      let lookAtTarget = camTargets.iso.target.clone();
+      camera.lookAt(lookAtTarget);
+
+      const renderer = new THREE.WebGLRenderer({
+        canvas: canvas,
+        antialias: true,
+        powerPreference: 'high-performance'
+      });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.shadowMap.enabled = true;
+      renderer.shadowMap.type = THREE.PCFShadowMap;
+
+      function updateCameraFov() {
+        const aspect = window.innerWidth / window.innerHeight;
+        camera.aspect = aspect;
+        if (aspect < 1.0) {
+          // Khi màn hình dọc (9:16 TikTok), tăng vertical FOV để giữ góc ngang bao quát toàn bộ 10 nhân vật
+          camera.fov = Math.min(68, Math.round(45 / (aspect * 1.15)));
+        } else {
+          camera.fov = 45;
+        }
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      }
+      updateCameraFov();
+
+      // 3. Hệ Thống Ánh Sáng Rực Rỡ Chuẩn Low-Poly
+      const ambientLight = new THREE.AmbientLight(0xfffbeb, 0.85);
+      scene.add(ambientLight);
+
+      const dirLight = new THREE.DirectionalLight(0xfff7ed, 1.4);
+      dirLight.position.set(20, 35, 18);
+      dirLight.castShadow = true;
+      dirLight.shadow.mapSize.width = 2048;
+      dirLight.shadow.mapSize.height = 2048;
+      dirLight.shadow.camera.near = 0.5;
+      dirLight.shadow.camera.far = 80;
+      const d = 25;
+      dirLight.shadow.camera.left = -d;
+      dirLight.shadow.camera.right = d;
+      dirLight.shadow.camera.top = d;
+      dirLight.shadow.camera.bottom = -d;
+      scene.add(dirLight);
+
+      const hemiLight = new THREE.HemisphereLight(0x60a5fa, 0x15803d, 0.45);
+      scene.add(hemiLight);
+
+      // 4. Xây Dựng Sa Bàn Xóm Phố Việt Nam
+      const arena = Dog3DEngine.createVillageArenaScene();
+      scene.add(arena);
+
+      // 5. Khởi Tạo Đội Hình 5v5: Xóm Đỏ vs Xóm Xanh (Bố trí chiến thuật so le dọc đường hẻm)
+      const redDogs = [];
+      const blueDogs = [];
+      const allDogs = [];
+
+      // Xóm Đỏ (5 chiến binh): Pitbull (thủ lĩnh), Mr Vàng, Vện Hổ, Cảnh Khuyển Becgie, Mực Trừ Tà
+      const redConfigs = [
+        { breed: 'pitbull', name: 'Đại Ca Bull', pos: [-4.8, 0] },
+        { breed: 'vang',    name: 'Mr Vàng',     pos: [-6.8, 3.4] },
+        { breed: 'ven',     name: 'Vện Hổ',      pos: [-7.8, 6.8] },
+        { breed: 'becgie',  name: 'Cảnh Khuyển', pos: [-6.8, -3.4] },
+        { breed: 'muc',     name: 'Mực Trừ Tà',  pos: [-7.8, -6.8] }
+      ];
+
+      redConfigs.forEach(cfg => {
+        const dog = Dog3DEngine.createDogModel({
+          breed: cfg.breed,
+          name: cfg.name,
+          team: 'red',
+          hp: 100
+        });
+        dog.model.position.set(cfg.pos[0], 0, cfg.pos[1]);
+        dog.model.rotation.y = Math.PI / 2; // Hướng sang phải
+        scene.add(dog.model);
+        redDogs.push(dog);
+        allDogs.push(dog);
+      });
+
+      // Xóm Xanh (5 chiến binh): Corgi (thủ lĩnh), Ki Tăng Động, Heo Bựa Lạc Bầy, Lu Béo Ú, Đốm Bông
+      const blueConfigs = [
+        { breed: 'corgi', name: 'Bánh Bao Corgi', pos: [4.8, 0] },
+        { breed: 'ki',    name: 'Ki Tăng Động',   pos: [6.8, 3.4] },
+        { breed: 'piggy', name: 'Ủn Ỉn Lạc Bầy',  pos: [7.8, 6.8] },
+        { breed: 'lu',    name: 'Lu Béo Ú',       pos: [6.8, -3.4] },
+        { breed: 'dom',   name: 'Đốm Bông',       pos: [7.8, -6.8] }
+      ];
+
+      blueConfigs.forEach(cfg => {
+        const dog = Dog3DEngine.createDogModel({
+          breed: cfg.breed,
+          name: cfg.name,
+          team: 'blue',
+          hp: 100
+        });
+        dog.model.position.set(cfg.pos[0], 0, cfg.pos[1]);
+        dog.model.rotation.y = -Math.PI / 2; // Hướng sang trái
+        scene.add(dog.model);
+        blueDogs.push(dog);
+        allDogs.push(dog);
+      });
+
+      // 6. Web Audio Synthesizer
+      const audioSynth = Dog3DEngine.audioSynth;
+      let soundEnabled = true;
+
+      // 7. Tiện ích Thông báo Toast
+      const toast = document.getElementById('battle-toast');
+      let toastTimer = null;
+      function showToast(msg) {
+        toast.textContent = msg;
+        toast.classList.add('visible');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => toast.classList.remove('visible'), 2000);
+      }
+
+      // 8. Tương tác Nút "GÂU" Khổng Lồ
+      const giantBtn = document.getElementById('giant-bark-btn');
+      giantBtn.addEventListener('click', () => {
+        giantBtn.classList.add('pushed');
+        setTimeout(() => giantBtn.classList.remove('pushed'), 200);
+
+        // Phát âm thanh
+        if (soundEnabled) {
+          audioSynth.playBark('vang');
+        }
+
+        // Chọn 1-3 chú chó ngẫu nhiên sủa chấn động
+        const count = Math.floor(Math.random() * 3) + 2;
+        for (let i = 0; i < count; i++) {
+          const randDog = allDogs[Math.floor(Math.random() * allDogs.length)];
+          randDog.triggerBark(0.65);
+        }
+
+        showToast('💥 GÂU GÂU! Tiếng sủa chấn động xóm phố!');
+      });
+
+      // 9. Nút Điều Khiển Trận Đấu
+      document.getElementById('btn-all-bark').addEventListener('click', () => {
+        allDogs.forEach((dog, idx) => {
+          setTimeout(() => {
+            dog.triggerBark(0.6);
+            if (soundEnabled && idx % 3 === 0) {
+              audioSynth.playBark(dog.breedKey);
+            }
+          }, idx * 70);
+        });
+        showToast('🔊 TOÀN XÓM SỦA VANG RỰC LỬA!');
+      });
+
+      document.getElementById('btn-red-attack').addEventListener('click', () => {
+        redDogs.forEach(d => {
+          d.setState('walk');
+          setTimeout(() => {
+            d.triggerBark(0.8);
+            if (soundEnabled) audioSynth.playBark(d.breedKey);
+          }, 350);
+        });
+        blueDogs.forEach(d => {
+          d.setHp(Math.max(15, d.hp - 25));
+          d.setState('exhausted');
+        });
+        updateMoraleUI();
+        showToast('🔴 XÓM ĐỎ TỔNG LỰC TẤN CÔNG!');
+
+        setTimeout(() => {
+          redDogs.forEach(d => { if (d.hp > 0 && d.state === 'walk') d.setState('idle'); });
+          blueDogs.forEach(d => { if (d.hp > 0 && d.state === 'exhausted') d.setState('idle'); });
+        }, 2500);
+      });
+
+      document.getElementById('btn-blue-counter').addEventListener('click', () => {
+        blueDogs.forEach(d => {
+          d.setState('walk');
+          setTimeout(() => {
+            d.triggerBark(0.8);
+            if (soundEnabled) audioSynth.playBark(d.breedKey);
+          }, 350);
+        });
+        redDogs.forEach(d => {
+          d.setHp(Math.max(15, d.hp - 25));
+          d.setState('exhausted');
+        });
+        updateMoraleUI();
+        showToast('🔵 XÓM XANH TỔ CHỨC PHẢN CÔNG!');
+
+        setTimeout(() => {
+          blueDogs.forEach(d => { if (d.hp > 0 && d.state === 'walk') d.setState('idle'); });
+          redDogs.forEach(d => { if (d.hp > 0 && d.state === 'exhausted') d.setState('idle'); });
+        }, 2500);
+      });
+
+      document.getElementById('btn-all-evolve').addEventListener('click', () => {
+        redDogs.forEach(d => d.setState('evolved_tiger'));
+        blueDogs.forEach(d => d.setState('evolved_dragon'));
+        if (soundEnabled) audioSynth.playEvolveRoar();
+        showToast('🔥 ĐẠI CHIẾN THẦN THÚ: HỔ LỬA VS RỒNG THẦN!');
+      });
+
+      document.getElementById('btn-piggy-oink').addEventListener('click', () => {
+        const piggy = blueDogs.find(d => d.breedKey === 'piggy');
+        if (piggy) {
+          piggy.triggerBark(0.8);
+          if (soundEnabled) audioSynth.playBark('piggy');
+          // Chuyển cam về piggy
+          setCameraPreset('piggy');
+        }
+        showToast('🐷 ỦN ỈN ÉC ÉC! Chú heo bựa lạc bầy quậy tung sàn!');
+      });
+
+      document.getElementById('btn-reset-battle').addEventListener('click', () => {
+        allDogs.forEach(d => {
+          d.setHp(100);
+          d.setState('idle');
+        });
+        updateMoraleUI();
+        setCameraPreset('iso');
+        showToast('🔄 Đã đặt lại trạng thái trận đấu!');
+      });
+
+      function updateMoraleUI() {
+        const redTotal = Math.round(redDogs.reduce((acc, d) => acc + d.hp, 0) / 5);
+        const blueTotal = Math.round(blueDogs.reduce((acc, d) => acc + d.hp, 0) / 5);
+        document.getElementById('hp-text-red').textContent = `${redTotal}%`;
+        document.getElementById('hp-text-blue').textContent = `${blueTotal}%`;
+      }
+
+      // 10. Chuyển Đổi Góc Camera
+      function setCameraPreset(key) {
+        if (!camTargets[key]) return;
+        currentCamPreset = key;
+        document.querySelectorAll('.cam-btn').forEach(btn => {
+          btn.classList.toggle('active', btn.dataset.cam === key);
+        });
+      }
+
+      document.querySelectorAll('.cam-btn[data-cam]').forEach(btn => {
+        btn.addEventListener('click', () => setCameraPreset(btn.dataset.cam));
+      });
+
+      // 11. Bách Khoa 10 Giống Loài Drawer
+      const showcaseDrawer = document.getElementById('showcase-drawer');
+      const btnToggleShowcase = document.getElementById('btn-toggle-showcase');
+      const btnCloseDrawer = document.getElementById('btn-close-drawer');
+      const breedGrid = document.getElementById('breed-grid');
+
+      const allBreeds = Dog3DEngine.getAllBreeds();
+      let selectedBreedKey = 'vang';
+
+      allBreeds.forEach(b => {
+        const pill = document.createElement('div');
+        pill.className = `breed-pill ${b.id === 'vang' ? 'selected' : ''}`;
+        pill.textContent = b.nameVi;
+        pill.addEventListener('click', () => {
+          document.querySelectorAll('.breed-pill').forEach(p => p.classList.remove('selected'));
+          pill.classList.add('selected');
+          selectBreed(b.id);
+        });
+        breedGrid.appendChild(pill);
+      });
+
+      function selectBreed(id) {
+        selectedBreedKey = id;
+        const info = Dog3DEngine.getBreedInfo(id);
+        document.getElementById('detail-name').textContent = info.nameVi;
+        document.getElementById('detail-role').textContent = `${info.role} • ${info.rarity}`;
+        document.getElementById('detail-trait').textContent = `Đặc trưng: ${info.specialTrait}`;
+
+        // Focus camera vào nhân vật tương ứng nếu có trên sân
+        const found = allDogs.find(d => d.breedKey === id);
+        if (found) {
+          const pos = found.model.position;
+          camTargets.inspect = {
+            pos: new THREE.Vector3(pos.x, pos.y + 2.5, pos.z + 5.5),
+            target: new THREE.Vector3(pos.x, pos.y + 1.0, pos.z)
+          };
+          setCameraPreset('inspect');
+        }
+      }
+
+      btnToggleShowcase.addEventListener('click', () => {
+        showcaseDrawer.classList.toggle('open');
+      });
+      btnCloseDrawer.addEventListener('click', () => {
+        showcaseDrawer.classList.remove('open');
+      });
+
+      // Các nút test hoạt họa trong drawer
+      document.getElementById('btn-inspect-bark').addEventListener('click', () => {
+        const found = allDogs.find(d => d.breedKey === selectedBreedKey);
+        if (found) {
+          found.triggerBark(0.7);
+          if (soundEnabled) audioSynth.playBark(found.breedKey);
+        }
+      });
+      document.getElementById('btn-inspect-walk').addEventListener('click', () => {
+        const found = allDogs.find(d => d.breedKey === selectedBreedKey);
+        if (found) found.setState('walk');
+      });
+      document.getElementById('btn-inspect-pant').addEventListener('click', () => {
+        const found = allDogs.find(d => d.breedKey === selectedBreedKey);
+        if (found) found.setState('exhausted');
+      });
+      document.getElementById('btn-inspect-evolve').addEventListener('click', () => {
+        const found = allDogs.find(d => d.breedKey === selectedBreedKey);
+        if (found) {
+          found.setState(found.team === 'red' ? 'evolved_tiger' : 'evolved_dragon');
+          if (soundEnabled) audioSynth.playEvolveRoar();
+        }
+      });
+
+      // 12. Bật / Tắt Âm Thanh
+      const btnSound = document.getElementById('btn-toggle-sound');
+      btnSound.addEventListener('click', () => {
+        soundEnabled = !soundEnabled;
+        audioSynth.isMuted = !soundEnabled;
+        btnSound.textContent = soundEnabled ? '🔊 Âm Thanh: BẬT' : '🔇 Âm Thanh: TẮT';
+        showToast(soundEnabled ? '🔊 Đã bật hệ thống âm thanh!' : '🔇 Đã tắt âm thanh!');
+      });
+
+      // 13. OBS Mode (Ẩn Header / Điều Khiển để livestream)
+      const btnOBS = document.getElementById('btn-toggle-obs');
+      let isOBSMode = false;
+      btnOBS.addEventListener('click', () => {
+        isOBSMode = !isOBSMode;
+        document.querySelector('header.arena-header').style.display = isOBSMode ? 'none' : 'flex';
+        document.querySelector('.cam-presets').style.display = isOBSMode ? 'none' : 'flex';
+        btnOBS.textContent = isOBSMode ? '📺 Thoát OBS' : '📺 OBS Mode';
+      });
+
+      // 14. Responsive Resize
+      window.addEventListener('resize', onWindowResize, false);
+      function onWindowResize() {
+        updateCameraFov();
+      }
+
+      // 15. Animation Loop 60 FPS
+      let lastTime = performance.now();
+
+      function animate() {
+        requestAnimationFrame(animate);
+
+        const now = performance.now();
+        const delta = Math.min((now - lastTime) / 1000, 0.1);
+        lastTime = now;
+
+        // Smooth camera lerp
+        const currentTarget = camTargets[currentCamPreset] || camTargets.iso;
+        camera.position.lerp(currentTarget.pos, delta * 3.5);
+        lookAtTarget.lerp(currentTarget.target, delta * 3.5);
+        camera.lookAt(lookAtTarget);
+
+        // Cập nhật tất cả các chú chó
+        for (let i = 0; i < allDogs.length; i++) {
+          allDogs[i].update(delta, camera);
+        }
+
+        renderer.render(scene, camera);
+      }
+
+      // Bắt đầu vòng lặp
+      animate();
+
+      console.log('✅ Đấu Trường Chó Sủa 3D WebGL đã khởi chạy thành công 60 FPS!');
+    })();
+  </script>
+</body>
+</html>

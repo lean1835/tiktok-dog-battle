@@ -1,0 +1,183 @@
+{
+  "license": "CC0-1.0",
+  "sampleRate": 32000,
+  "channels": 1,
+  "playbackRate": 1,
+  "processing": "Mono, DC removal, active RMS target with -3 dBFS peak ceiling, 5ms fades; original natural playback rate.",
+  "profiles": [
+    {
+      "id": "classic",
+      "label": "Gâu gọn",
+      "source": "https://freesound.org/people/kwahmah_02/sounds/277058/",
+      "author": "kwahmah_02",
+      "license": "CC0-1.0",
+      "clips": [
+        {
+          "id": "classic-1",
+          "path": "assets/audio/bark-bank/classic-1.wav",
+          "duration": 0.494,
+          "sourceStart": 0,
+          "sourceEnd": 0.389,
+          "sha256": "d16a0208704eb6fecf6c09bd654c5373eeb041d524c430f79fb0208bc63c1a6b"
+        },
+        {
+          "id": "classic-double",
+          "path": "assets/audio/bark-bank/classic-double.wav",
+          "duration": 1.108,
+          "derivedFrom": "classic-1",
+          "changes": "Two real barks with 120 ms natural gap; no pitch change.",
+          "sha256": "03821253ba446b35ca2b3989870467e9dc940c86d0f2ab903bbe0b47b5332098"
+        }
+      ]
+    },
+    {
+      "id": "toy",
+      "label": "Chó nhỏ Shih Tzu",
+      "source": "https://freesound.org/people/Glitchedtones/sounds/372523/",
+      "author": "Glitchedtones",
+      "license": "CC0-1.0",
+      "clips": [
+        {
+          "id": "toy-1",
+          "path": "assets/audio/bark-bank/toy-1.wav",
+          "duration": 0.47390625,
+          "sourceStart": 0.2,
+          "sourceEnd": 0.5689,
+          "sha256": "a6da7840073d936874de34ea7adaef11c8bead58a44fa568fd92fcc52a737b9e"
+        },
+        {
+          "id": "toy-double",
+          "path": "assets/audio/bark-bank/toy-double.wav",
+          "duration": 1.0678125,
+          "derivedFrom": "toy-1",
+          "changes": "Two real barks with 120 ms natural gap; no pitch change.",
+          "sha256": "0efcd94f8c6edd7e2fbfac74d4ae4011ddea57813da24c264ccbf8f770598cc1"
+        }
+      ]
+    },
+    {
+      "id": "shepherd",
+      "label": "Chó chăn cừu",
+      "source": "https://freesound.org/people/Vrymaa/sounds/737885/",
+      "author": "Vrymaa",
+      "license": "CC0-1.0",
+      "clips": [
+        {
+          "id": "shepherd-1",
+          "path": "assets/audio/bark-bank/shepherd-1.wav",
+          "duration": 0.915,
+          "sourceStart": 0.15,
+          "sourceEnd": 0.96,
+          "sha256": "e081c71de82ed7f904e3cf255bfcb6c1872db98b399201857a759b71ba0ede24"
+        },
+        {
+          "id": "shepherd-2",
+          "path": "assets/audio/bark-bank/shepherd-2.wav",
+          "duration": 1.025,
+          "sourceStart": 1.5,
+          "sourceEnd": 2.42,
+          "sha256": "211c4244ecbdb36e65111c1a63a0c58377c54da48c93efbbf393209bb8b06246"
+        },
+        {
+          "id": "shepherd-3",
+          "path": "assets/audio/bark-bank/shepherd-3.wav",
+          "duration": 0.68,
+          "sourceStart": 4.875,
+          "sourceEnd": 5.45,
+          "sha256": "20d50df0e58b87c672b955ddf6267a90970357e9eeb0701a10b1f48416076575"
+        }
+      ]
+    },
+    {
+      "id": "brisk",
+      "label": "Gâu nhanh",
+      "source": "https://freesound.org/people/16FVolejnikovaA/sounds/498394/",
+      "author": "16FVolejnikovaA",
+      "license": "CC0-1.0",
+      "clips": [
+        {
+          "id": "brisk-1",
+          "path": "assets/audio/bark-bank/brisk-1.wav",
+          "duration": 0.605,
+          "sourceStart": 0.15,
+          "sourceEnd": 0.65,
+          "sha256": "7e526086fac5615561063023bdea80013ce3dd05c002f6abed66c3d6b374dc0d"
+        },
+        {
+          "id": "brisk-2",
+          "path": "assets/audio/bark-bank/brisk-2.wav",
+          "duration": 0.605,
+          "sourceStart": 0.9,
+          "sourceEnd": 1.4,
+          "sha256": "e047e2f0d4b6e1b911dc17345be27e421558e33fb7bf815056e39cfea3b7b013"
+        },
+        {
+          "id": "brisk-3",
+          "path": "assets/audio/bark-bank/brisk-3.wav",
+          "duration": 0.68,
+          "sourceStart": 1.875,
+          "sourceEnd": 2.45,
+          "sha256": "58aed106b31b0cfceb6f15f93f120488cf026208551f668f802559a3562c64c1"
+        }
+      ]
+    },
+    {
+      "id": "small",
+      "label": "Gâu cao",
+      "source": "https://freesound.org/people/ivolipa/sounds/332457/",
+      "author": "ivolipa",
+      "license": "CC0-1.0",
+      "clips": [
+        {
+          "id": "small-1",
+          "path": "assets/audio/bark-bank/small-1.wav",
+          "duration": 0.935,
+          "sourceStart": 0.67,
+          "sourceEnd": 1.5,
+          "sha256": "bdc7fa60e13db2f768d22724a94061103aae370cdb7b79a7a9dcb3a12e10af8e"
+        },
+        {
+          "id": "small-2",
+          "path": "assets/audio/bark-bank/small-2.wav",
+          "duration": 1.005,
+          "sourceStart": 3.2,
+          "sourceEnd": 4.1,
+          "sha256": "4b1da44339fec95466e90b8ac586e4ad7a81e0205e15eac62acdeb9601202997"
+        },
+        {
+          "id": "small-3",
+          "path": "assets/audio/bark-bank/small-3.wav",
+          "duration": 1.005,
+          "sourceStart": 6.05,
+          "sourceEnd": 6.95,
+          "sha256": "9c9fcb45fc266dd89f70e04a05d52c88742a7dc7dbc3bdadc898435f1ba4b3de"
+        }
+      ]
+    },
+    {
+      "id": "round",
+      "label": "Gâu dài",
+      "source": "https://freesound.org/people/fennelliott/sounds/347364/",
+      "author": "fennelliott",
+      "license": "CC0-1.0",
+      "clips": [
+        {
+          "id": "round-1",
+          "path": "assets/audio/bark-bank/round-1.wav",
+          "duration": 1.405,
+          "sourceStart": 0.15,
+          "sourceEnd": 1.45,
+          "sha256": "b26a0dab2393ca023013c20386b59c9c931d8a0379bf85194585535b048bce72"
+        },
+        {
+          "id": "round-2",
+          "path": "assets/audio/bark-bank/round-2.wav",
+          "duration": 0.625,
+          "sourceStart": 1.58,
+          "sourceEnd": 2.1,
+          "sha256": "2092fbbf5d9b16519ed5a771c2af6ddb4948b18b675595da947375bc9caddde1"
+        }
+      ]
+    }
+  ]
+}

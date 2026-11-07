@@ -1,0 +1,7 @@
+{
+  "author": "kwahmah_02",
+  "source": "https://freesound.org/people/kwahmah_02/sounds/277058/",
+  "license": "CC0-1.0",
+  "download": "https://cdn.freesound.org/previews/277/277058_4486188-hq.mp3",
+  "changes": "Mono, DC removal, -3 dBFS peak, 4ms edge fades, 25ms lead and 100ms tail silence; original playback rate retained."
+}

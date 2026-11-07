@@ -1,0 +1,371 @@
+{
+  "sourceCatalog": "https://github.com/antiops/tiktok-trending-data/blob/main/live-gift-details.json",
+  "retrievedOn": "2026-11-04",
+  "rights": "Gift artwork belongs to TikTok/ByteDance; these are identifiers of actual gifts, not original or CC0 assets.",
+  "items": [
+    {
+      "id": "5655",
+      "name": "Rose",
+      "file": "assets/tiktok-gifts/5655.webp",
+      "sourceUrl": "https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/eba3a9bb85c33e017f3648eaf88d7189~tplv-obj.webp",
+      "sourceSha256": "6a93376be38ca1f34569ea6c6910a3dda10b26de6ff610927b43091b6b244cce",
+      "sha256": "7603b803c2bcd43a7b54e0a4dc5861670daf41348516b5b99901aa570e2917fb",
+      "bytes": 4042,
+      "size": [
+        96,
+        96
+      ]
+    },
+    {
+      "id": "8913",
+      "name": "Rosa",
+      "file": "assets/tiktok-gifts/8913.webp",
+      "sourceUrl": "https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/eb77ead5c3abb6da6034d3cf6cfeb438~tplv-obj.webp",
+      "sourceSha256": "0e2de0f3adcfe49aa710f214e4365272aaab6ba75b65524138445b5c2988a1da",
+      "sha256": "9872fe77b95ccbe9fc1f293ec36884b4d48a7f921f17f76c7c28a8a5826fac65",
+      "bytes": 4488,
+      "size": [
+        96,
+        96
+      ]
+    },
+    {
+      "id": "5879",
+      "name": "Doughnut",
+      "file": "assets/tiktok-gifts/5879.webp",
+      "sourceUrl": "https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/4e7ad6bdf0a1d860c538f38026d4e812~tplv-obj.webp",
+      "sourceSha256": "fce50b0b8dabb362f7f268cd8cd205f277112f17123cffce2e2574013577a1fb",
+      "sha256": "6a64ba9f6461e534583dcb8b8410f0e7a796872078f4ae1fd2f1ba766b050fc7",
+      "bytes": 3860,
+      "size": [
+        96,
+        96
+      ]
+    },
+    {
+      "id": "6784",
+      "name": "Cake Slice",
+      "file": "assets/tiktok-gifts/6784.webp",
+      "sourceUrl": "https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/f681afb4be36d8a321eac741d387f1e2~tplv-obj.webp",
+      "sourceSha256": "c53ef37a793a106289d67e221b03f73d3b36f89082ced8a7ccf5047c338c383c",
+      "sha256": "ad0c74760a8108f6b1d4fde2fcb7dde8eb584e27b72f96ac6532ce64e47cbffe",
+      "bytes": 3328,
+      "size": [
+        96,
+        96
+      ]
+    },
+    {
+      "id": "5487",
+      "name": "Finger Heart",
+      "file": "assets/tiktok-gifts/5487.webp",
+      "sourceUrl": "https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/a4c4dc437fd3a6632aba149769491f49.png~tplv-obj.webp",
+      "sourceSha256": "4de7efeea48108a1651e984109df93d431c5b5b449658df0be35cc61c9437869",
+      "sha256": "e4e49ffd0524d781b5583127f5da9f404fc96963af54a51c9c3c65f8ac68e700",
+      "bytes": 3218,
+      "size": [
+        96,
+        96
+      ]
+    },
+    {
+      "id": "5658",
+      "name": "Perfume",
+      "file": "assets/tiktok-gifts/5658.webp",
+      "sourceUrl": "https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/20b8f61246c7b6032777bb81bf4ee055~tplv-obj.webp",
+      "sourceSha256": "01b8e27db815580f607acd77663e161349fb48562d1dfa5c37a4a6b51dda1483",
+      "sha256": "5a27d8c3fb111f7ba5aa29289f52ee6403dd90e82b617d64182ad47ae4ec86a0",
+      "bytes": 4156,
+      "size": [
+        96,
+        96
+      ]
+    },
+    {
+      "id": "5659",
+      "name": "Paper Crane",
+      "file": "assets/tiktok-gifts/5659.webp",
+      "sourceUrl": "https://p16-webcast.tiktokcdn.com/img/alisg/webcast-sg/0f158a08f7886189cdabf496e8a07c21~tplv-obj.webp",
+      "sourceSha256": "a9cd2f043fcb12198f37491b6c4f963597cb132b04a0e5ee31e803b58671b239",
+      "sha256": "363dd9d5831b6185a1b53adb65c2644963dfb1a880f23dc7ab773efa5d95b0d0",
+      "bytes": 4114,
+      "size": [
+        96,
+        96
+      ]
+    },
+    {
+      "id": "6968",
+      "name": "Hand Heart",
+      "file": "assets/tiktok-gifts/6968.webp",
+      "sourceUrl": "https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/47e9081623cdae9faa55f4d0d67908bf~tplv-obj.webp",
+      "sourceSha256": "dd942e49ad15c4d0983919ada98438f95c5f8ce803fe8cac8d044cecc167be24",
+      "sha256": "f68cef504aeee1efb2dc9a45d0df6df68306a6d0c9ba2216e105fef8f251bc27",
+      "bytes": 5360,
+      "size": [
+        96,
+        96
+      ]
+    },
+    {
+      "id": "5660",
+      "name": "Hand Heart",
+      "file": "assets/tiktok-gifts/5660.webp",
+      "sourceUrl": "https://p16-webcast.tiktokcdn.com/img/alisg/webcast-sg/resource/374dfe46d5b09ce1db19be06202d34f5.png~tplv-obj.webp",
+      "sourceSha256": "3d83780371bb130b7a9c01aee73566cd9e723014d7a74abeebdbcfcbeea0796c",
+      "sha256": "9a3d85d8ca528a3e787b09ec94b26eb00e7e96ec60352d057bc0b8c0969a1044",
+      "bytes": 5992,
+      "size": [
+        96,
+        96
+      ]
+    },
+    {
+      "id": "5509",
+      "name": "Sunglasses",
+      "file": "assets/tiktok-gifts/5509.webp",
+      "sourceUrl": "https://p16-webcast.tiktokcdn.com/img/alisg/webcast-sg/08af67ab13a8053269bf539fd27f3873.png~tplv-obj.webp",
+      "sourceSha256": "b72406ec7f9395901f69264f46283ebbbe1f1a807b1c8f1da553b9c798643298",
+      "sha256": "503228a9d21cab43cc19c626b5a3ff9877dc88d4c630bb6a87c91bb3d153de44",
+      "bytes": 3210,
+      "size": [
+        96,
+        96
+      ]
+    },
+    {
+      "id": "18198",
+      "name": "Tiger Lift",
+      "file": "assets/tiktok-gifts/18198.webp",
+      "sourceUrl": "https://p16-webcast.tiktokcdn.com/img/alisg/webcast-sg/resource/5150422ca02095eef30bd508fe0b7cdd.png~tplv-obj.webp",
+      "sourceSha256": "0f030e93571856e70bbdba4b666d7d8942e87af388fa23a0dd5daf43a73074a1",
+      "sha256": "19fdb82acffacc8165ad3fc763e48e27cc5bb071c1b370b284c3dae6da1d58f0",
+      "bytes": 5980,
+      "size": [
+        96,
+        96
+      ]
+    },
+    {
+      "id": "13072",
+      "name": "Dragon Crown",
+      "file": "assets/tiktok-gifts/13072.webp",
+      "sourceUrl": "https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/1d3f3738f57d6a45dd6df904bedd59ae.png~tplv-obj.webp",
+      "sourceSha256": "943d28611b0e2cd18ad46d99909a24ab40e0d19d2ed5512dad0ee46d067f2d58",
+      "sha256": "161590a9499844d84697370d72fc3646ba701e6c568b680b5bc8caa798964e24",
+      "bytes": 7730,
+      "size": [
+        96,
+        96
+      ]
+    },
+    {
+      "id": "13604",
+      "name": "Fiery Dragon",
+      "file": "assets/tiktok-gifts/13604.webp",
+      "sourceUrl": "https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/8d1281789de0a5dfa69f90ecf0dc1534.png~tplv-obj.webp",
+      "sourceSha256": "fc592e52fb8dc5ee98fdaadde97e1b151c5d9e06265a0b8fc13527a850318365",
+      "sha256": "8adcebc8475ce386cc46c40e42ee35ef85488be0ba3eeb8590ee7e8a7be40b62",
+      "bytes": 8916,
+      "size": [
+        96,
+        96
+      ]
+    },
+    {
+      "id": "14440",
+      "name": "White Tiger",
+      "file": "assets/tiktok-gifts/14440.webp",
+      "sourceUrl": "https://p16-webcast.tiktokcdn.com/img/alisg/webcast-sg/resource/b7d2532e9e175722cac92a0685d5a5ca.png~tplv-obj.webp",
+      "sourceSha256": "512d7e74972baeae9f8706f20b01b9b85a4af11457459c9e652989c0dd6dd36c",
+      "sha256": "17ca7b6435136a371ccc4182f8e40f5601dc5a263f4b3d1d750166bec114fa47",
+      "bytes": 5924,
+      "size": [
+        96,
+        96
+      ]
+    },
+    {
+      "id": "47646",
+      "name": "Black Tiger",
+      "file": "assets/tiktok-gifts/47646.webp",
+      "sourceUrl": "https://p16-webcast.tiktokcdn.com/img/alisg/webcast-sg/resource/0e1bd6f089b9817a6d3f0cb18915038d.png~tplv-obj.webp",
+      "sourceSha256": "74507757f38dcba6c544031f75b019bb21e7c26dfabbb0063ac87cfe48b4dadd",
+      "sha256": "51434c97f0ee4d01695faeee3b2157284fbc9f32aa0ff427d419e907b3df5473",
+      "bytes": 5504,
+      "size": [
+        96,
+        96
+      ]
+    },
+    {
+      "id": "7610",
+      "name": "Dragon Flame",
+      "file": "assets/tiktok-gifts/7610.webp",
+      "sourceUrl": "https://p16-webcast.tiktokcdn.com/img/alisg/webcast-sg/resource/e5af942cbf6c909da2f11950b1df8b8d.png~tplv-obj.webp",
+      "sourceSha256": "f8eeaadaef598140f86788bd6334a41c3d7dc8aa68ef47be535654887a1bfffd",
+      "sha256": "06110f76e75f60c1172facb498069c67e7fdc97e099f509a8fb64fa632a1505f",
+      "bytes": 7992,
+      "size": [
+        96,
+        96
+      ]
+    },
+    {
+      "id": "7934",
+      "name": "Heart Me",
+      "file": "assets/tiktok-gifts/7934.webp",
+      "sourceUrl": "https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/d56945782445b0b8c8658ed44f894c7b~tplv-resize:258:258.webp",
+      "sourceSha256": "658b7a0a55d894e71503eb1da14767db4b2748d8e2412e0aede1f437191d7c29",
+      "sha256": "1d293580316550e90609c3bc83473764763a6bd53b9ae424454c367bd102d68f",
+      "bytes": 4714,
+      "size": [
+        96,
+        96
+      ]
+    },
+    {
+      "id": "6064",
+      "name": "GG",
+      "file": "assets/tiktok-gifts/6064.webp",
+      "sourceUrl": "https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/3f02fa9594bd1495ff4e8aa5ae265eef~tplv-obj.webp",
+      "sourceSha256": "7a7958092c41f5e3b5f7de6ff38047432a2a2f86739b91e07d3005e6e97d04b5",
+      "sha256": "e358214a468420dc2e9dfe66199f6182f1452c9991a7c1dd52a4059cc8787f27",
+      "bytes": 3990,
+      "size": [
+        96,
+        96
+      ]
+    },
+    {
+      "id": "5827",
+      "name": "Ice Cream Cone",
+      "file": "assets/tiktok-gifts/5827.webp",
+      "sourceUrl": "https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/968820bc85e274713c795a6aef3f7c67~tplv-obj.webp",
+      "sourceSha256": "b91006312b7d7f3c2f3c16cef9f83c123079d71ef6b5e6232fc3f514434c5522",
+      "sha256": "1ec2e1cfefce633e4da98c3bb3de58d468982284f2140d51a2710c9c050858f6",
+      "bytes": 2496,
+      "size": [
+        96,
+        96
+      ]
+    },
+    {
+      "id": "5269",
+      "name": "TikTok",
+      "file": "assets/tiktok-gifts/5269.webp",
+      "sourceUrl": "https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/802a21ae29f9fae5abe3693de9f874bd~tplv-obj.webp",
+      "sourceSha256": "cd0d3446428e1a0fd966e1221dc62b8895f694bdaeafdd3cc8800b3aee9590ac",
+      "sha256": "cd368740423b83daa85632ed5c8c3a730f1ffd8fe7c672941da5ea26833c04bc",
+      "bytes": 3494,
+      "size": [
+        96,
+        96
+      ]
+    },
+    {
+      "id": "6104",
+      "name": "Cap",
+      "file": "assets/tiktok-gifts/6104.webp",
+      "sourceUrl": "https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/6c2ab2da19249ea570a2ece5e3377f04~tplv-obj.webp",
+      "sourceSha256": "a036929c85180bc481f7356984320632cbae137ef4e55f5ecd0a5e23735ca1c1",
+      "sha256": "da2a61901dfe0882a1f2342dc79530e30f4ac86a56e26be71de7bc8b93f89eb2",
+      "bytes": 3644,
+      "size": [
+        96,
+        96
+      ]
+    },
+    {
+      "id": "5585",
+      "name": "Confetti",
+      "file": "assets/tiktok-gifts/5585.webp",
+      "sourceUrl": "https://p16-webcast.tiktokcdn.com/img/alisg/webcast-sg/resource/472bf660b0804bb37f616d173edb8a9d.png~tplv-obj.webp",
+      "sourceSha256": "0409f00adeb1017c51f8986303f93a989d2f68c213d0dc0423a7e0f21e690605",
+      "sha256": "fadf40a0c9a8dac6c088e8de10f1f5a0823c87d5f95007ecc16ebac69f7133e0",
+      "bytes": 4430,
+      "size": [
+        96,
+        96
+      ]
+    },
+    {
+      "id": "6671",
+      "name": "Love You",
+      "file": "assets/tiktok-gifts/6671.webp",
+      "sourceUrl": "https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/134e51c00f46e01976399883ca4e4798~tplv-obj.webp",
+      "sourceSha256": "76f14e267ba9141ee4d0a32616db3ede9176bfeece5fb447eb5f20817e0f4507",
+      "sha256": "f8932bb15227b0030f850bf50484a6713ee95a699e5c059093ce82bb1db2cddd",
+      "bytes": 8110,
+      "size": [
+        96,
+        96
+      ]
+    },
+    {
+      "id": "5586",
+      "name": "Hearts",
+      "file": "assets/tiktok-gifts/5586.webp",
+      "sourceUrl": "https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/934b5a10dee8376df5870a61d2ea5cb6.png~tplv-obj.webp",
+      "sourceSha256": "db2d45089c6cf08879bf4063b97a497bb108a26f8825bfa5260d856ab01e5fc7",
+      "sha256": "e75742c3094798eb52e22f1e66d47e7edbdb199cb37b32b20414b6195b88cf1b",
+      "bytes": 4586,
+      "size": [
+        96,
+        96
+      ]
+    },
+    {
+      "id": "6267",
+      "name": "Corgi",
+      "file": "assets/tiktok-gifts/6267.webp",
+      "sourceUrl": "https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/148eef0884fdb12058d1c6897d1e02b9~tplv-obj.webp",
+      "sourceSha256": "07de22613a5f565d91195d22732d82bb054c771495762e64f0429a6f8eea771e",
+      "sha256": "954bc754be8ba8118b6bdd1ec67c40d7c48d161bc28d0dccf593c49e794b64e6",
+      "bytes": 4578,
+      "size": [
+        96,
+        96
+      ]
+    },
+    {
+      "id": "5897",
+      "name": "Swan",
+      "file": "assets/tiktok-gifts/5897.webp",
+      "sourceUrl": "https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/97a26919dbf6afe262c97e22a83f4bf1~tplv-obj.webp",
+      "sourceSha256": "df4affdafe32b993d89f7188933f26ecc57bea0e1c3600f7c207b3e2776b1af2",
+      "sha256": "8c704dae2ce87eb6395c2bc67db7489a547760db102a1e62861e80e295353b77",
+      "bytes": 6436,
+      "size": [
+        96,
+        96
+      ]
+    },
+    {
+      "id": "11046",
+      "name": "Galaxy",
+      "file": "assets/tiktok-gifts/11046.webp",
+      "sourceUrl": "https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/79a02148079526539f7599150da9fd28.png~tplv-obj.webp",
+      "sourceSha256": "7990802c6f7170507cdda33c5c4a54af5662dd00ec8e17c46c84eb0c8f002486",
+      "sha256": "22ae742853539bf157a8be835e1d1f59541d4e1e1b089e4ba6419e956ebd16c0",
+      "bytes": 7244,
+      "size": [
+        96,
+        96
+      ]
+    },
+    {
+      "id": "6369",
+      "name": "Lion",
+      "file": "assets/tiktok-gifts/6369.webp",
+      "sourceUrl": "https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/4fb89af2082a290b37d704e20f4fe729~tplv-obj.webp",
+      "sourceSha256": "71c3896fef0826a47116eea43ecdc3410f1ac5b4bf1b3dcb46e29f30a6e5c984",
+      "sha256": "e953acea3a41dc7ea04c19b9c1882199848ab8806f3121b56846a124ddc35066",
+      "bytes": 6394,
+      "size": [
+        96,
+        96
+      ]
+    }
+  ]
+}
