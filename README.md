@@ -1,7 +1,5 @@
 # Tuất Live — TikTok chó battle 3D
 
-Bản lưu kỷ niệm của **lean1835** · [Một sân chó nhỏ — một kỷ niệm](KY-NIEM.md).
-
 Bản phần mềm local gồm **quản lý + overlay 9:16**, server Node.js đọc tương tác TikTok và điều phối trận 5v5. Đồ họa, model và 20 mẫu gâu/gầm vẫn nhúng trong đúng hai HTML. Server bổ sung để quản lý và OBS cùng một trận dù không dùng chung localStorage.
 
 Đây là **bản ứng viên đang kiểm định**, chưa nghiệm thu một buổi LIVE TikTok thật. Phần kết nối dùng `tiktok-live-connector`, một thư viện cộng đồng.
@@ -59,7 +57,7 @@ Bản chạy server **luôn bù bot để đủ 5v5** khi thiếu người. Mỗ
 - [Đọc tên không dấu, sửa cách đọc và danh sách 15 giây](docs/VOICE-GUIDE.md)
 - [Nguồn model](docs/ASSET-SOURCES.md), [nguồn tiếng gâu/gầm](docs/BARK-VOICES.md)
 - [Các mục cần nghiệm thu để hoàn thành mục tiêu](docs/LIVE-READINESS.md)
-- [Mô tả bản hai file offline](docs/TWO-FILE-DEMO.md); [README bản cũ](docs/LEGACY-README.md)
+- [Mô tả bản hai file offline](docs/TWO-FILE-DEMO.md)
 
 Kế thừa kỹ thuật từ Chánh Điện Tịnh Tâm, Copyright (c) 2026 Kent Juno, MIT; giữ nguyên giấy phép trong `assets/licenses/chanh-dien-MIT.txt`. Không chỉnh sửa dự án gốc.
 
